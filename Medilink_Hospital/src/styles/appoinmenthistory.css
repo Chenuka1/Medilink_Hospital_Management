@@ -1,0 +1,88 @@
+
+.img {
+  width: 150%; 
+ 
+  max-height: 700px; 
+  object-fit: cover; 
+  margin-bottom: 30px; 
+}
+.AppointmentHistory {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+
+.AppointmentHistory h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.image {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.image img {
+  width: 100%;
+  height: auto; 
+  max-height: 200px; 
+  object-fit: cover; 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.AppointmentHistory table {
+  width: 80%; 
+  margin: 0 auto; 
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+/* .AppointmentHistory  table th, table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+} */
+
+.AppointmentHistory  table th {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.AppointmentHistory  table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.AppointmentHistory  table tr:hover {
+  background-color: #f1f1f1;
+}
+
+@media (max-width: 768px) {
+  
+  .AppointmentHistory    table {
+    font-size: 14px;
+    width: 100%; 
+  }
+}
+
+.appointment-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.image-container {
+  display: flex; 
+  justify-content: center; 
+  width: 100%; 
+  max-width: 500px; 
+  margin: 0 auto 20px; 
+
+}
+
+.image-container img {
+  width: 100%; 
+  height: auto; 
+  border-radius: 8px;
+}

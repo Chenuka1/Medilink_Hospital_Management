@@ -1,0 +1,89 @@
+/* Main container with background image */
+.main-container {
+    background-image: url('../assets/bg4.webp');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container for the form */
+.register-patients-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 450px;
+    width: 100%;
+}
+
+/* Form Styling */
+.patient-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Group Styling */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.form-input {
+    padding: 12px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Button Styling */
+.form-submit-button,
+.form-reset-button {
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 15px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+
+/* Submit Button Styling */
+.form-submit-button {
+    background-color: #0077ff;
+    color: white;
+}
+
+.form-submit-button:hover {
+    background-color: blue;
+}
+
+/* Reset Button Styling */
+.form-reset-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.form-reset-button:hover {
+    background-color: #e53935;
+}
+
+/* Form heading styling */
+.patient-form h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+}

@@ -1,0 +1,157 @@
+.invoice-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+.invoice-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.logo-section img {
+    height: 80px;
+}
+
+.invoice-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #007bff;
+    text-align: right;
+}
+
+.client-info {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.payment-method {
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.payment-method label {
+    font-weight: bold;
+}
+
+.payment-method select {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    font-size: 1em;
+}
+
+.invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.invoice-table th, .invoice-table td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.invoice-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.invoice-table td {
+    background-color: #fdfdfd;
+}
+
+.total-section {
+    text-align: right;
+    font-size: 1.3em;
+}
+
+.total-section p {
+    margin: 10px 0;
+}
+
+.invoice-container input[type="number"] {
+    width: 80px;
+    padding: 8px;
+    margin-left: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+}
+
+.btn-container1 {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.print {
+    background-color: #007bff;
+}
+
+.download {
+    background-color: #28a745;
+}
+
+.send {
+    background-color: #6f42c1;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* Invoice.css */
+
+@media print {
+    /* Hide elements that should not be printed */
+    .btn-container1,
+    .payment-method {
+        display: none;
+    }
+
+    /* Ensure the invoice takes full width and no margins */
+    .invoice-container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Avoid breaking the layout when printing */
+    body * {
+        visibility: hidden;
+    }
+
+    .invoice-container,
+    .invoice-container * {
+        visibility: visible;
+    }
+
+    .invoice-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+}
+/* CSS to hide buttons and payment type during download */
+.hide-elements .btn-container1,
+.hide-elements .payment-method {
+    display: none;
+}
+

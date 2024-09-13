@@ -1,0 +1,157 @@
+/* Styling for the container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url('../assets/image4.jpg'); /* Ensure the path is correct */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: 'Poppins', sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Styling for the form wrapper */
+.login-form {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  transition: transform 0.3s ease;
+}
+
+.login-form:hover {
+  transform: translateY(-5px);
+}
+
+/* Styling for the form heading */
+.login-form h1 {
+  margin-bottom: 30px;
+  font-size: 32px;
+  color: #333;
+  font-weight: 700;
+}
+
+/* Styling for the form group (label and input) */
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Styling for labels */
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #444;
+}
+
+/* Styling for input fields */
+.form-group input[type="text"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  background-color: #f7f7f7;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+  outline: none;
+  background-color: #fff;
+}
+
+/* Styling for the buttons */
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.btn {
+  padding: 14px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-submit {
+  background-color: #007bff;
+  color: #fff;
+  padding:10px;
+}
+
+.btn-reset {
+  background-color: red;
+  color: #fff;
+  padding: 10px;
+  margin-left:10px
+}
+
+.btn:hover {
+  opacity: 0.95;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+}
+
+.btn-reset:hover {
+  background-color: #5a6268;
+}
+
+/* Styling for additional options below the form */
+.additional-options {
+  margin-top: 30px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.additional-options a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.additional-options a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive styling for mobile devices */
+@media (max-width: 600px) {
+  .login-form {
+    padding: 30px;
+    max-width: 350px;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+
+  .form-group input[type="text"],
+  .form-group input[type="password"] {
+    padding: 12px 14px;
+    font-size: 14px;
+  }
+
+  .login-form h1 {
+    font-size: 26px;
+  }
+}

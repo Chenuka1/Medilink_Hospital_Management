@@ -1,0 +1,130 @@
+/* General Navbar Styling */
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: 70px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.navbar-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+/* Logo Styling */
+.navbar-logo img {
+    width: 120px;
+    cursor: pointer;
+}
+
+/* Menu Styling */
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.navbar-menu li {
+    position: relative;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 8px 12px;
+    transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+    color: #007bff;
+}
+
+/* Dropdown Menu Styling */
+.navbar-profile {
+    position: relative;
+    cursor: pointer;
+}
+
+.profile-icon {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #333;
+}
+
+.profile-icon:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-icon {
+    transition: transform 0.3s;
+}
+
+.profile-icon:hover .dropdown-icon {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    min-width: 150px;
+    border-radius: 8px;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 16px;
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+    color: #007bff;
+}
+
+.dropdown-menu a:last-child {
+    border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-menu {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .navbar-logo img {
+        width: 100px;
+    }
+}

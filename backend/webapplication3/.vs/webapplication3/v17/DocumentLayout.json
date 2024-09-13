@@ -1,0 +1,404 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\controllers\\logincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\controllers\\materialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\controllers\\materialcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\controllers\\timeslotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\controllers\\timeslotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\models\\med_patients_details.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\models\\med_patients_details.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\models\\med_material_catalogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\models\\med_material_catalogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\models\\med_patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\models\\med_patient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\controllers\\treatmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\controllers\\treatmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\models\\med_treatment_details.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\models\\med_treatment_details.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\models\\med_drugs_details.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\models\\med_drugs_details.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\controllers\\drugcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\controllers\\drugcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\models\\med_user_types.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\models\\med_user_types.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\controllers\\user_type_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\controllers\\user_type_controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\models\\med_user_details.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\models\\med_user_details.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\models\\med_timeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\models\\med_timeslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\models\\med_appoinment_details.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\models\\med_appoinment_details.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\models\\med_doctor_details.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\models\\med_doctor_details.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\controllers\\appoinmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\controllers\\appoinmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\models\\timeslotmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\models\\timeslotmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|d:\\dockyard internships\\despansary management system\\backend\\webapplication3\\webapplication3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\webapplication3.csproj|solutionrelative:webapplication3\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Health_Management\\backend\\WebApplication1\\WebApplication1\\Controllers\\patientController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 16,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "userController.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Controllers\\userController.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Controllers\\userController.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Controllers\\userController.cs",
+              "RelativeToolTip": "webapplication3\\Controllers\\userController.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAzwB4AAAAmAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T02:50:39.474Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "MED_USER_DETAILS.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\MED_USER_DETAILS.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Models\\MED_USER_DETAILS.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\MED_USER_DETAILS.cs",
+              "RelativeToolTip": "webapplication3\\Models\\MED_USER_DETAILS.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAuwCcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T02:43:00.201Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "user_type_Controller.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Controllers\\user_type_Controller.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Controllers\\user_type_Controller.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Controllers\\user_type_Controller.cs",
+              "RelativeToolTip": "webapplication3\\Controllers\\user_type_Controller.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-03T02:31:55.969Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MED_USER_TYPES.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\MED_USER_TYPES.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Models\\MED_USER_TYPES.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\MED_USER_TYPES.cs",
+              "RelativeToolTip": "webapplication3\\Models\\MED_USER_TYPES.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-02T03:02:18.185Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "drugController.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Controllers\\drugController.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Controllers\\drugController.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Controllers\\drugController.cs",
+              "RelativeToolTip": "webapplication3\\Controllers\\drugController.cs",
+              "ViewState": "AQIAACYAAAAAAAAAAAAgwEwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-29T04:44:45.9Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MED_DRUGS_DETAILS.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\MED_DRUGS_DETAILS.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Models\\MED_DRUGS_DETAILS.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\MED_DRUGS_DETAILS.cs",
+              "RelativeToolTip": "webapplication3\\Models\\MED_DRUGS_DETAILS.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAiwBcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-29T03:58:31.029Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "materialController.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Controllers\\materialController.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Controllers\\materialController.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Controllers\\materialController.cs",
+              "RelativeToolTip": "webapplication3\\Controllers\\materialController.cs",
+              "ViewState": "AQIAAHoAAAAAAAAAAAAswHAAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T03:29:07.902Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MED_MATERIAL_CATALOGUE.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\MED_MATERIAL_CATALOGUE.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Models\\MED_MATERIAL_CATALOGUE.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\MED_MATERIAL_CATALOGUE.cs",
+              "RelativeToolTip": "webapplication3\\Models\\MED_MATERIAL_CATALOGUE.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T03:23:40.65Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MED_PATIENTS_DETAILS.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\MED_PATIENTS_DETAILS.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Models\\MED_PATIENTS_DETAILS.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\MED_PATIENTS_DETAILS.cs",
+              "RelativeToolTip": "webapplication3\\Models\\MED_PATIENTS_DETAILS.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAA5wAQAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-27T02:13:35.451Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "treatmentController.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Controllers\\treatmentController.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Controllers\\treatmentController.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Controllers\\treatmentController.cs",
+              "RelativeToolTip": "webapplication3\\Controllers\\treatmentController.cs",
+              "ViewState": "AQIAAHgAAAAAAAAAAAAuwEIAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-25T09:18:41.676Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MED_TREATMENT_DETAILS.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\MED_TREATMENT_DETAILS.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Models\\MED_TREATMENT_DETAILS.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\MED_TREATMENT_DETAILS.cs",
+              "RelativeToolTip": "webapplication3\\Models\\MED_TREATMENT_DETAILS.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAQwCgAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T09:58:35.963Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "MED_TIMESLOT.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\MED_TIMESLOT.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Models\\MED_TIMESLOT.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\MED_TIMESLOT.cs",
+              "RelativeToolTip": "webapplication3\\Models\\MED_TIMESLOT.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T05:35:57.097Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "MED_APPOINMENT_DETAILS.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\MED_APPOINMENT_DETAILS.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Models\\MED_APPOINMENT_DETAILS.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\MED_APPOINMENT_DETAILS.cs",
+              "RelativeToolTip": "webapplication3\\Models\\MED_APPOINMENT_DETAILS.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T05:22:35.788Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "med_doctor_details.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\med_doctor_details.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Models\\med_doctor_details.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\med_doctor_details.cs",
+              "RelativeToolTip": "webapplication3\\Models\\med_doctor_details.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T05:09:54.298Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "med_patient.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\med_patient.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Models\\med_patient.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\med_patient.cs",
+              "RelativeToolTip": "webapplication3\\Models\\med_patient.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAADwvw0AAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T04:03:01.415Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "timeslotController.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Controllers\\timeslotController.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Controllers\\timeslotController.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Controllers\\timeslotController.cs",
+              "RelativeToolTip": "webapplication3\\Controllers\\timeslotController.cs",
+              "ViewState": "AQIAAKMAAAAAAAAAAAAowMQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-20T02:56:54.265Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "loginController.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Controllers\\loginController.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Controllers\\loginController.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Controllers\\loginController.cs",
+              "RelativeToolTip": "webapplication3\\Controllers\\loginController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAALMAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T05:41:04.151Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "patientController.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Controllers\\patientController.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Controllers\\patientController.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Controllers\\patientController.cs",
+              "RelativeToolTip": "webapplication3\\Controllers\\patientController.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAowCgAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-19T05:40:34.82Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "timeslotModel.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\timeslotModel.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Models\\timeslotModel.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Models\\timeslotModel.cs",
+              "RelativeToolTip": "webapplication3\\Models\\timeslotModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-12T06:03:05.77Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Program.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Program.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Program.cs",
+              "RelativeToolTip": "webapplication3\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-11T07:17:51.095Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Data\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Data\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Data\\ApplicationDbContext.cs",
+              "RelativeToolTip": "webapplication3\\Data\\ApplicationDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-11T07:53:25.668Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "appoinmentController.cs",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Controllers\\appoinmentController.cs",
+              "RelativeDocumentMoniker": "webapplication3\\Controllers\\appoinmentController.cs",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\Controllers\\appoinmentController.cs",
+              "RelativeToolTip": "webapplication3\\Controllers\\appoinmentController.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAYwDIAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-14T02:57:31.417Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\appsettings.json",
+              "RelativeDocumentMoniker": "webapplication3\\appsettings.json",
+              "ToolTip": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\appsettings.json",
+              "RelativeToolTip": "webapplication3\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-11T05:51:28.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "patientController.cs",
+              "DocumentMoniker": "D:\\Health_Management\\backend\\WebApplication1\\WebApplication1\\Controllers\\patientController.cs",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Health_Management\\backend\\WebApplication1\\WebApplication1\\Controllers\\patientController.cs",
+              "ToolTip": "D:\\Health_Management\\backend\\WebApplication1\\WebApplication1\\Controllers\\patientController.cs",
+              "RelativeToolTip": "..\\..\\..\\..\\Health_Management\\backend\\WebApplication1\\WebApplication1\\Controllers\\patientController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAA4AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-11T08:16:11.262Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
