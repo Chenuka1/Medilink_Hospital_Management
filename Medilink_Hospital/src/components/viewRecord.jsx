@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom'; 
-import '../styles/viewRecord.css';
+import '../styles/viewRecord.css'; // Import the custom CSS
+import { Spinner } from 'react-bootstrap'; 
 
 export default function ViewRecord() {
     const { patientId, serial_no } = useParams();
     const [details, setDetails] = useState(null);
     const [error, setError] = useState('');
     const navigate = useNavigate(); 
+
+    const handleContinue = () => {
+        navigate(`/dashboard/remark/${patientId}/${serial_no}`);
+    };
 
     useEffect(() => {
         const fetchRecords = async () => {
@@ -24,44 +29,40 @@ export default function ViewRecord() {
     }, [patientId, serial_no]);
 
     if (error) {
-        return <div>{error}</div>;
+        return <div className="error-notification">{error}</div>;
     }
 
     if (!details) {
-        return <div>Loading...</div>;
+        return (
+            <div className="loading-container">
+                <Spinner animation="border" /> 
+            </div>
+        );
     }
 
     return (
         <div className="view-record-container">
-            {/* <div className="header">
+            <div className="header">
                 <button className="back-button" onClick={() => navigate(-1)}>Back</button>
-            </div> */}
+                
+            </div>
             <div className="main">
                 <div className="healthrecord">
-                    <h1>Medical History of the Patient</h1>
-
+                    <h2>Medical History</h2>
                     <div className="details-header">
                         <p><strong>Date:</strong> {new Date(details.MTD_DATE).toLocaleDateString()}</p>
+                        <p><strong>Doctor:</strong> {details.MTD_DOCTOR}</p>
                     </div>
-
-                    <div className="details-grid">
-                        <div className="form-group">
-                            <label><strong>Doctor:</strong></label>
-                            <input type="text" value={details.MTD_DOCTOR} readOnly />
-                        </div>
-
-                        <div className="form-group">
-                            <label><strong>Complain:</strong></label>
-                            <input type="text" value={details.MTD_COMPLAIN} readOnly />
-                        </div>
+                    <div className="form-group">
+                        <label><strong>Complain:</strong></label>
+                        <textarea value={details.MTD_COMPLAIN} readOnly />
                     </div>
-
                     <div className="form-group">
                         <label><strong>Diagnostics:</strong></label>
                         <textarea value={details.MTD_DIAGNOSTICS} readOnly />
                     </div>
 
-                    <h2>Prescribed Medicines</h2>
+                    <h3>Prescribed Medicines</h3>
                     <table className="prescription-table">
                         <thead>
                             <tr>
@@ -87,6 +88,8 @@ export default function ViewRecord() {
                         <label><strong>Doctor Remarks:</strong></label>
                         <textarea value={details.MTD_REMARKS} readOnly />
                     </div>
+
+                    <button className="continue-button" onClick={handleContinue}>Continue</button>
                 </div>
             </div>
         </div>

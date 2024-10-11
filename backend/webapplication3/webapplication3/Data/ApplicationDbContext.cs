@@ -27,6 +27,8 @@ namespace webapplication3.Data
 
         public DbSet<MED_USER_DETAILS> MED_USER_DETAILS { get; set; }
 
+        public DbSet<MED_APPOINTMENT_USERS> MED_APPOINMENT_USERS { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<MED_TREATMENT_DETAILS>()

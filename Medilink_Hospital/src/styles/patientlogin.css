@@ -1,0 +1,138 @@
+.login-wrapper {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    height: 100vh;
+    background-image: url('../assets/image4.jpg'); /* Ensure the path is correct */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px; /* Add padding for smaller screens */
+}
+
+.login-container-patient {
+    width: 100%; 
+    max-width: 400px; /* Ensure the container doesn't exceed 400px */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.926); 
+    border-radius: 15px; 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.login-container-patient h1 {
+    text-align: center; 
+    color: #333;
+    margin-bottom: 40px;
+    font-size: 1.5rem;
+}
+
+.login-container-patient label {
+    display: block; 
+    margin-bottom: 5px; 
+    font-weight: bold; 
+    color: #555;
+    text-align: left;
+    margin-left: 5%;
+}
+
+.login-container-patient input[type="text"],
+.login-container-patient input[type="password"] {
+    width: 90%; 
+    padding: 12px; 
+    margin-bottom: 20px; 
+    border: 1px solid #ccc;
+    font-size: 16px; 
+    transition: border-color 0.3s ease;
+    border-radius: 10px;
+}
+
+.login-container-patient input:focus {
+    border-color: #007bff; 
+    outline: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-container-patient button {
+    width: 45%; 
+    padding: 12px; 
+    background-color: #007bff; 
+    color: #fff; 
+    border: none;
+    font-size: 16px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
+}
+
+.login-container-patient button:hover {
+    background-color: #0056b3;
+}
+
+.login-container-patient .cancel-btn {
+    background-color: #dc3545; /* Red for cancel button */
+}
+
+.login-container-patient .cancel-btn:hover {
+    background-color: #c82333;
+}
+
+.login-container-patient p {
+    text-align: center; 
+    margin-top: 15px; 
+    color: #777;
+}
+
+.login-container-patient a {
+    color: #007bff; 
+    text-decoration: none;
+}
+
+.login-container-patient a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .login-container-patient {
+        max-width: 90%; /* Ensure form takes up most of the width on smaller screens */
+        padding: 20px;
+    }
+
+    .login-container-patient h1 {
+        font-size: 1.3rem;
+    }
+
+    .login-container-patient input[type="text"],
+    .login-container-patient input[type="password"] {
+        width: 100%; /* Full width on smaller screens */
+    }
+
+    .button-container {
+        flex-direction: column; /* Stack buttons on smaller screens */
+        gap: 10px; /* Add space between buttons */
+    }
+
+    .login-container-patient button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container-patient {
+        padding: 15px;
+    }
+
+    .login-container-patient h1 {
+        font-size: 1.2rem;
+    }
+
+    .login-container-patient input[type="text"],
+    .login-container-patient input[type="password"] {
+        padding: 10px;
+    }
+}

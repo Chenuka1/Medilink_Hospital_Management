@@ -1,6 +1,4 @@
-﻿
-
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using webapplication3.Data;
 using webapplication3.Models;
 using System.Collections.Generic;
@@ -48,16 +46,43 @@ namespace webapplication3.Controllers
             return appointment;
         }
 
-  
+        [HttpGet("getappoinments/doctor")]
+        public async Task<ActionResult<MED_APPOINMENT_DETAILS>> getappoinments(string doctor)
+        {
+            var appointment = await _context.MED_APPOINMENT_DETAILS
+                .Where(d => d.MAD_DOCTOR == doctor)
+                .ToListAsync();
+
+            return Ok(appointment);
+        }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MED_APPOINMENT_DETAILS>>> GetAllAppointments()
         {
-            var appointments = await _context.MED_APPOINMENT_DETAILS.ToListAsync();
+            var appointments = await _context.MED_APPOINMENT_DETAILS
+                .OrderBy(a => a.MAD_APPOINMENT_DATE)
+                .ThenBy(a => a.MAD_PATIENT_NO)
+                .ToListAsync();
 
             if (appointments == null || !appointments.Any())
             {
                 return NotFound("No appointments found.");
+            }
+
+            return Ok(appointments);
+        }
+
+        // Updated endpoint to match the correct route
+        [HttpGet("getappointment/email")] // Corrected route
+        public async Task<ActionResult<IEnumerable<MED_APPOINMENT_DETAILS>>> getappointmentemail(string email)
+        {
+            var appointments = await _context.MED_APPOINMENT_DETAILS
+                .Where(a => a.MAD_EMAIL == email)
+                .ToListAsync();
+
+            if (appointments == null || !appointments.Any())
+            {
+                return NotFound("No appointments found");
             }
 
             return Ok(appointments);

@@ -1,19 +1,29 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
-import '../styles/treatmentPlan.css';
+import '../styles/addrecord.css'
 import { useParams, useNavigate } from 'react-router-dom';
 
 const Addrecord = () => {
   const { patientId } = useParams();
+  const Name = localStorage.getItem("Name");
   const [medicines, setMedicines] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
-  const [prescriptions, setPrescriptions] = useState([{ MDD_MATERIAL_CODE: '', MDD_MATERIAL_NAME: '', MDD_DOSAGE: '', MDD_TAKES: '', MDD_QUANTITY: '', duration: '' }]);
-  const [activePrescriptionIndex, setActivePrescriptionIndex] = useState(null); 
+  const [prescriptions, setPrescriptions] = useState([
+    {
+      MDD_MATERIAL_CODE: '',
+      MDD_MATERIAL_NAME: '',
+      MDD_DOSAGE: '',
+      MDD_TAKES: '',
+      MDD_QUANTITY: '',
+      MMC_RATE: 0,
+    },
+  ]);
+  const [activePrescriptionIndex, setActivePrescriptionIndex] = useState(null);
   const [formData, setFormData] = useState({
     MTD_PATIENT_CODE: patientId,
     MTD_DATE: new Date().toISOString(),
-    MTD_DOCTOR: '',
+    MTD_DOCTOR: Name || '',
     MTD_TYPE: '',
     MTD_COMPLAIN: '',
     MTD_DIAGNOSTICS: '',
@@ -25,7 +35,7 @@ const Addrecord = () => {
     MTD_SMS: '',
     MTD_MEDICAL_STATUS: '',
     MTD_STATUS: '',
-    MTD_CREATED_BY: '',
+    MTD_CREATED_BY: Name || '',
     MTD_CREATED_DATE: new Date().toISOString(),
     MTD_UPDATED_BY: '',
     MTD_UPDATED_DATE: null,
@@ -44,13 +54,35 @@ const Addrecord = () => {
   };
 
   const handlePrescriptionChange = (index, event) => {
+    const { name, value } = event.target;
     const values = [...prescriptions];
-    values[index][event.target.name] = event.target.value;
+    values[index][name] = value;
     setPrescriptions(values);
+  
+    // Check if all the current prescription fields are filled
+    const isCompleted = values[index].MDD_MATERIAL_NAME &&
+      values[index].MDD_TAKES &&
+      values[index].MDD_QUANTITY;
+  
+    // If all fields are completed and it's the last prescription, add a new one
+    if (isCompleted && index === prescriptions.length - 1) {
+      handleAddPrescription();
+    }
   };
+  
 
   const handleAddPrescription = () => {
-    setPrescriptions([...prescriptions, { MDD_MATERIAL_CODE: '', MDD_MATERIAL_NAME: '', MDD_DOSAGE: '', MDD_TAKES: '', MDD_QUANTITY: '', duration: '' }]);
+    setPrescriptions([
+      ...prescriptions,
+      {
+        MDD_MATERIAL_CODE: '',
+        MDD_MATERIAL_NAME: '',
+        MDD_DOSAGE: '',
+        MDD_TAKES: '',
+        MDD_QUANTITY: '',
+        MMC_RATE: 0,
+      },
+    ]);
   };
 
   const handleRemovePrescription = (index) => {
@@ -61,9 +93,15 @@ const Addrecord = () => {
 
   const handleSearchChange = async (index, event) => {
     const query = event.target.value;
+    const values = [...prescriptions];
+    values[index].MDD_MATERIAL_NAME = query;
+    setPrescriptions(values);
+
     if (query.length > 2) {
       try {
-        const response = await axios.get(`https://localhost:7132/api/Material/search?query=${query}`);
+        const response = await axios.get(
+          `https://localhost:7132/api/Material/search?query=${query}`
+        );
         setSearchResults(response.data);
       } catch (error) {
         console.error('Error fetching medicines:', error);
@@ -71,13 +109,9 @@ const Addrecord = () => {
     } else {
       setSearchResults([]);
     }
-
-    const values = [...prescriptions];
-    values[index].MDD_MATERIAL_NAME = query;
-    setPrescriptions(values);
   };
 
-  const handleSelectMedicine = (index, materialCode, materialName, rate) => {
+  const handleSelectMedicine = ( index, materialCode, materialName, rate ) => {
     const values = [...prescriptions];
     values[index].MDD_MATERIAL_CODE = materialCode;
     values[index].MDD_MATERIAL_NAME = materialName;
@@ -91,12 +125,21 @@ const Addrecord = () => {
     setLoading(true);
 
     try {
-      const treatmentResponse = await axios.post('https://localhost:7132/api/Treatment', formData);
+      const treatmentResponse = await axios.post(
+        'https://localhost:7132/api/Treatment',
+        formData
+      );
       const serial_no = treatmentResponse.data.MTD_SERIAL_NO;
 
-      if (prescriptions.length > 0 && prescriptions.some(prescription => prescription.MDD_MATERIAL_CODE && prescription.MDD_DOSAGE)) {
+      if (
+        prescriptions.length > 0 &&
+        prescriptions.some(
+          (prescription) =>
+            prescription.MDD_MATERIAL_CODE 
+        )
+      ) {
         const drugDetailsPromises = prescriptions.map((prescription) => {
-          if (prescription.MDD_MATERIAL_CODE && prescription.MDD_DOSAGE) {
+          if (prescription.MDD_MATERIAL_CODE) {
             return axios.post('https://localhost:7132/api/Drug', {
               MDD_MATERIAL_CODE: prescription.MDD_MATERIAL_CODE,
               MDD_DOSAGE: prescription.MDD_DOSAGE,
@@ -110,22 +153,26 @@ const Addrecord = () => {
               MDD_STATUS: '',
               MDD_SERIAL_NO: serial_no,
               MDD_QUANTITY: prescription.MDD_QUANTITY || 0,
-              MDD_AMOUNT: prescription.MMC_RATE * prescription.MDD_QUANTITY,
+              MDD_AMOUNT:
+                prescription.MMC_RATE *
+                (prescription.MDD_QUANTITY || 0),
             });
           }
-          return null;  
+          return null;
         });
 
-        await Promise.all(drugDetailsPromises.filter(promise => promise !== null));
+        await Promise.all(
+          drugDetailsPromises.filter((promise) => promise !== null)
+        );
       }
 
-      navigate(`/dashboard/invoice/${patientId}/${serial_no}`);
+      navigate(`/dashboard/view-record/${patientId}/${serial_no}`);
 
-      
+      // Reset form after submission
       setFormData({
         MTD_PATIENT_CODE: patientId,
         MTD_DATE: new Date().toISOString(),
-        MTD_DOCTOR: '',
+        MTD_DOCTOR: Name || '',
         MTD_TYPE: '',
         MTD_COMPLAIN: '',
         MTD_DIAGNOSTICS: '',
@@ -137,14 +184,26 @@ const Addrecord = () => {
         MTD_SMS: '',
         MTD_MEDICAL_STATUS: '',
         MTD_STATUS: '',
-        MTD_CREATED_BY: '',
+        MTD_CREATED_BY: Name || '',
         MTD_CREATED_DATE: new Date().toISOString(),
         MTD_UPDATED_BY: '',
         MTD_UPDATED_DATE: null,
       });
-      setPrescriptions([{ MDD_MATERIAL_CODE: '', MDD_MATERIAL_NAME: '', MDD_DOSAGE: '', MDD_TAKES: '', MDD_QUANTITY: '', duration: '' }]);
+      setPrescriptions([
+        {
+          MDD_MATERIAL_CODE: '',
+          MDD_MATERIAL_NAME: '',
+          MDD_DOSAGE: '',
+          MDD_TAKES: '',
+          MDD_QUANTITY: '',
+          MMC_RATE: 0,
+        },
+      ]);
     } catch (error) {
-      console.error('Error submitting record:', error.response?.data || error.message);
+      console.error(
+        'Error submitting record:',
+        error.response?.data || error.message
+      );
       setModalContent('Error submitting treatment and prescription details.');
       setIsModalOpen(true);
     } finally {
@@ -159,71 +218,34 @@ const Addrecord = () => {
   return (
     <div className="treatment-form-container">
       <h2>Add Treatment Details</h2>
-      <p className="subheading">Fill in the treatment and prescription information below.</p>
+      <p className="subheading">
+        Fill in the treatment and prescription information below.
+      </p>
 
       <div className="patient-info">
-        <p><strong>Patient Code:</strong> {patientId}</p>
+        <p>
+          <strong>Patient Code:</strong> {patientId}
+        </p>
       </div>
 
       <form onSubmit={handleSubmit}>
-        <div className="form-row">
-          <div className="form-group half-width">
-            <label htmlFor="MTD_DOCTOR">Doctor</label>
-            <input
-              type="text"
-              id="MTD_DOCTOR"
-              value={formData.MTD_DOCTOR}
-              onChange={handleFormChange}
-              placeholder="Enter doctor's name"
-              required
-            />
-          </div>
-
-          <div className="form-group half-width">
+        <div className="form-rowx">
+          <div className="form-group-half-width1">
             <label htmlFor="MTD_COMPLAIN">Patient Complaint</label>
-            <input
-              type="text"
+            <textarea
+            
               id="MTD_COMPLAIN"
               value={formData.MTD_COMPLAIN}
               onChange={handleFormChange}
               placeholder="Enter patient complaint"
               required
             />
-          </div>
+          </div>   
         </div>
 
-        <div className='form-row'>
-           <div className='form-group half-width'>
-              <label>Medical condition </label>
-          <select 
-          name="MTD_MEDICAL_STATUS"
-          value={formData.MTD_MEDICAL_STATUS || ""} 
-          onChange={handleFormChange}
-          id="MTD_MEDICAL_STATUS"
-         >
-
-           <option> select medical condition of patient </option>         
-           <option value="s">Stable</option>
-           <option value="c">Critical</option>
-            </select>
-       </div>
-
-          {/* <div className='form-group half-width'>
-            <label htmlFor='treatment fee'>Enter treatment amount</label>
-            <input type="text" 
-            name="MTD_AMOUNT"
-             id="MTD_AMOUNT"
-             min="0"
-            value={formData.MTD_AMOUNT}
-            onChange={handleFormChange}
-            
-            />
-            
-          </div> */}
-          
-         </div>
-        <div className="form-row">
-          <div className="form-group half-width">
+       
+        <div className="form-rowx">
+          <div className="form-group-half-width1">
             <label htmlFor="MTD_DIAGNOSTICS">Diagnosis</label>
             <textarea
               id="MTD_DIAGNOSTICS"
@@ -233,11 +255,9 @@ const Addrecord = () => {
               required
             />
           </div>
-
-          
         </div>
 
-        <div className="form-group">
+        <div className="form-groupx">
           <label>Prescriptions</label>
           {prescriptions.map((prescription, index) => (
             <div key={index} className="medicine-group">
@@ -248,34 +268,46 @@ const Addrecord = () => {
                 value={prescription.MDD_MATERIAL_NAME}
                 onChange={(event) => handleSearchChange(index, event)}
                 onFocus={() => setActivePrescriptionIndex(index)}
+                required
               />
-              {activePrescriptionIndex === index && searchResults.length > 0 && (
-                <ul className="search-suggestions">
-                  {searchResults.map((medicine) => (
-                    <li key={medicine.MMC_MATERIAL_CODE} onClick={() => handleSelectMedicine(index, medicine.MMC_MATERIAL_CODE, medicine.MMC_DESCRIPTION, medicine.MMC_RATE)}>
-                      {medicine.MMC_DESCRIPTION}
-                    </li>
-                  ))}
-                </ul>
-              )}
-              <input
-                type="text"
-                name="MDD_DOSAGE"
-                value={prescription.MDD_DOSAGE}
-                onChange={(event) => handlePrescriptionChange(index, event)}
-                placeholder="Dosage"
-              />
+              <br></br>
+              {activePrescriptionIndex === index &&
+                searchResults.length > 0 && (
+                  <ul className="search-suggestions">
+                    {searchResults.map((medicine) => (
+                      <li
+                        key={medicine.MMC_MATERIAL_CODE}
+                        onClick={() =>
+                          handleSelectMedicine(
+                            index,
+                            medicine.MMC_MATERIAL_CODE,
+                            medicine.MMC_DESCRIPTION,
+                            medicine.MMC_RATE
+                          )
+                        }
+                      >
+                        {medicine.MMC_DESCRIPTION}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              
               <select
                 name="MDD_TAKES"
                 value={prescription.MDD_TAKES}
                 onChange={(event) => handlePrescriptionChange(index, event)}
-               
+                required
               >
                 <option value="">How to Take</option>
-                <option value="once">Daily</option>
-                <option value="Twice">Twice a Day</option>
-                <option value="Three times">Three times per day</option>
-                <option value="Four times">As Needed</option>
+                <option value="Daily">Daily</option>
+                <option value="Twice a Day before food">Twice a Day before food</option>
+                <option value="Three times per day before food">
+                  Three times per day before food
+                </option>
+                <option value="Twice a day after food">Twice a day after food</option>
+                <option value="Three times per day after food">Three times per day after food</option>
+                <option value="As Needed">As Needed</option>
+                
               </select>
 
               <input
@@ -284,43 +316,94 @@ const Addrecord = () => {
                 value={prescription.MDD_QUANTITY}
                 onChange={(event) => handlePrescriptionChange(index, event)}
                 placeholder="Quantity"
+                required
               />
-              
-              <button type="button"  className='remove' onClick={() => handleRemovePrescription(index)}>Remove</button>
+
+              <button
+                type="button"
+                className="remove"
+                onClick={() => handleRemovePrescription(index)}
+              >
+                Remove
+              </button>
             </div>
           ))}
-          <button type="button" className='Add-precrib' onClick={handleAddPrescription}>Add Prescription</button>
+          <button
+            type="button"
+            className="Add-prescrib"
+            onClick={handleAddPrescription}
+          >
+            Add Prescription
+          </button>
+          <br />
         </div>
 
-             <div className="form-row">
-                
-                <div className="form-group half-width">
+        <div className="form-rowx">
+          <div className="form-group-half-width1">
+            <label htmlFor="MTD_REMARKS">Doctor's Remarks</label>
+            <textarea
+              id="MTD_REMARKS"
+              value={formData.MTD_REMARKS}
+              onChange={handleFormChange}
+              placeholder="Enter doctor remarks for the patient"
+              required
+            />
+          </div>
+        </div>
 
-                <label htmlFor="MTD_REMARKS">Doctor's Remarks</label>
-                  <textarea
-                    id="MTD_REMARKS"
-                    value={formData.MTD_REMARKS}
-                    onChange={handleFormChange}
-                    placeholder="Enter doctor remarks for the patient"
-                    required                  
-                  />
-                </div>
+        <div className="form-rowx">
 
-             </div>
+        <div className="form-group-half-width1">
+          <label htmlFor="MTD_MEDICAL_STATUS">Medical Condition</label>
+            <select
+              id="MTD_MEDICAL_STATUS"
+              value={formData.MTD_MEDICAL_STATUS}
+              onChange={handleFormChange}
+              required
+            >
+              <option value="">Select Medical Condition</option>
+              <option value="S">Stable</option>
+              <option value="C">Critical</option>
+            </select>
+            
+          </div>
 
-        
+          <div className="form-group-half-width1">
+            <label htmlFor="MTD_TREATMENT_STATUS">Treatment Status</label>
+            <select
+              id="MTD_TREATMENT_STATUS"
+              value={formData.MTD_TREATMENT_STATUS}
+              onChange={handleFormChange}
+              required
+            >
+              <option value="">Select Treatment Status</option>
+              <option value="C">Completed</option>
+              <option value="N">Not Completed</option>
+              <option value="P">Preparation completed</option>
+            </select>
+          </div>
+          <div className="form-group-half-width1">
+            <label htmlFor="MTD_AMOUNT">Treatment Amount</label>
+            <input
+              type="number"
+              id="MTD_AMOUNT"
+              name="MTD_AMOUNT"
+              value={formData.MTD_AMOUNT}
+              onChange={handleFormChange}
+              placeholder="Enter treatment amount"
+              required
+            />
+          </div>
 
           
 
+        </div>
 
-
-
-
-
-
-        
-
-        <button type="submit" disabled={loading} className="submit-button">
+        <button
+          type="submit"
+          disabled={loading}
+          className="submit-button"
+        >
           {loading ? 'Submitting...' : 'Submit'}
         </button>
       </form>

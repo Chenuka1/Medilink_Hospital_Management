@@ -1,9 +1,13 @@
+
+
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useLocation } from 'react-router-dom';
 import axios from 'axios';
 import '../styles/Invoice.css'; 
 import logo from '../assets/logo.png';
 import html2pdf from 'html2pdf.js';
+
+
 
 export default function Invoice() {
     const { patientId, serial_no } = useParams();
@@ -11,6 +15,8 @@ export default function Invoice() {
     const [invoicedetails, setInvoicedetails] = useState(null);
     const [treatmentamount, setTreatmentamount] = useState(0);
     const [discount, setDiscount] = useState(0);
+    const location = useLocation();
+    
 
     useEffect(() => {
         const fetchRecords = async () => {
@@ -45,9 +51,12 @@ export default function Invoice() {
 
     const calculateTotalAmount = () => {
         const subtotal = parseFloat(calculateSubtotal());
-        const discountedAmount = subtotal - (subtotal * discount) / 100;
-        return (discountedAmount + parseFloat(treatmentamount)).toFixed(2);
+        const totalBeforeDiscount = subtotal + parseFloat(treatmentamount);
+        const discountedAmount = totalBeforeDiscount - (totalBeforeDiscount * discount) / 100;
+        return discountedAmount.toFixed(2);
     };
+
+    
 
     const printInvoice = () => {
         window.print();
@@ -76,81 +85,60 @@ export default function Invoice() {
                 invoiceElement.classList.remove('hide-elements');
             });
     };
-    
 
     return (
-        <div className="invoice-container">
-            <div className="invoice-header">
-                <div className="logo-section">
-                    <img src={logo} alt="Medilink Logo" />
+        <div>
+
+            <div className="invoice-container">
+                
+                <header className="header2">
+                <div className='logo-container'>
+                    <img src={logo} alt="Medilink Logo" className="logo"/>
                 </div>
-                <h1 className="invoice-title">INVOICE</h1>
+                <p>85/1, Horana Road, Bandaragama.<br />
+                Tel: 0771068887<br />
+                Email: Medilink@gmail.com<br />
+                Web: www.medilink.lk</p>
+            </header>
+
+                <h1>Payment receipt</h1>
+                <h3>Medilink hospitals - Bandaragama</h3>
+
+                <div className="client-info">
+                    <p><strong>Patient Name:</strong> {patients ? patients.MPD_PATIENT_NAME : 'N/A'}</p>
+                    <p><strong>Invoice Number:</strong> {invoicedetails ? invoicedetails.MTD_SERIAL_NO : 'N/A'}</p>
+                    <p><strong>Date:</strong> {new Date().toLocaleDateString()}</p>
+                </div>
+
+                <div className='payment-info'>
+                  <p><strong>Total drug fee:</strong> Rs: {calculateSubtotal()}<br /></p>
+                   <p><strong>Treatment fee:</strong> Rs: {treatmentamount}</p>
+                   <p><strong>Total amount </strong> Rs:{(parseFloat(calculateSubtotal()) + parseFloat(treatmentamount)).toFixed(2)}</p>
+                    <p><strong>Discount (%):</strong> 
+                   <input 
+                    type="number" 
+                     value={discount} 
+                    onChange={(e) => setDiscount(e.target.value)} 
+                    min="0" max="100" 
+                  />
+                </p> 
+                    <p><strong>Final amount:</strong> Rs: {calculateTotalAmount()}</p>
+                </div>
+
+                
+
+                <div className="btn-container1">
+                    <button className="btn print" onClick={printInvoice}>Print</button>
+                    <button className="btn download" onClick={downloadInvoice}>Download</button>
+                    <button className="btn send">Send</button>
+                </div>
+
+                <p></p>
             </div>
 
-            <div className="client-info">
-                <p><strong>Client Name:</strong> {patients ? patients.MPD_PATIENT_NAME : 'N/A'}</p>
-                <p><strong>Invoice Number:</strong> {invoicedetails ? invoicedetails.MTD_SERIAL_NO : 'N/A'}</p>
-                <p><strong>Date:</strong> {new Date().toLocaleDateString()}</p>
-            </div>
+           
 
-            <div className="payment-method">
-                <label>Payment Method:</label>
-                <select>
-                    <option>Select Payment Method</option>
-                    <option>Credit Card</option>
-                    <option>Cash</option>
-                    <option>Bank Transfer</option>
-                </select>
-            </div>
-
-            <table className="invoice-table">
-                <thead>
-                    <tr>
-                        <th>Drug Name</th>
-                        <th>Takes</th>
-                        <th>Quantity</th>
-                        <th>Price (Rs)</th>
-                        <th>Amount (Rs)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {invoicedetails && invoicedetails.Drugs && invoicedetails.Drugs.length > 0 ? (
-                        invoicedetails.Drugs.map((drug, index) => (
-                            <tr key={index}>
-                                <td>{drug.DrugName}</td>
-                                <td>{drug.MDD_TAKES}</td> 
-                                <td>{drug.MDD_QUANTITY}</td>
-                                <td>{drug.MDD_RATE.toFixed(2)}</td>
-                                <td>{drug.MDD_AMOUNT.toFixed(2)}</td>
-                            </tr>
-                        ))
-                    ) : (
-                        <tr>
-                            <td colSpan="5">No invoice details found</td>
-                        </tr>
-                    )}
-                </tbody>
-            </table>
-
-            <div className="total-section">
-                <p><strong>Subtotal:</strong> Rs: {calculateSubtotal()}</p>
-                <p><strong>Discount (%):</strong> 
-                    <input 
-                        type="number" 
-                        value={discount} 
-                        onChange={(e) => setDiscount(e.target.value)} 
-                        min="0" max="100" 
-                    />
-                </p>
-                <p><strong>Treatment Amount:</strong> Rs: {treatmentamount}</p>
-                <p><strong>Total:</strong> Rs: {calculateTotalAmount()}</p>
-            </div>
-
-            <div className="btn-container1">
-                <button className="btn print" onClick={printInvoice}>Print</button>
-                <button className="btn download" onClick={downloadInvoice}>Download</button>
-                <button className="btn send">Send</button>
-            </div>
         </div>
     );
 }
+

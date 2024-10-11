@@ -31,7 +31,10 @@ namespace webapplication3.Controllers
         }
 
 
-       
+
+
+
+
 
         // GET: api/material
         [HttpGet]
@@ -61,6 +64,13 @@ namespace webapplication3.Controllers
 
             return Ok(materials);
         }
+
+
+       
+
+
+
+
 
         [HttpPost]
         public async Task<IActionResult> PostMaterial([FromBody] MED_MATERIAL_CATALOGUE material)

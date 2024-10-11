@@ -5,10 +5,10 @@
     padding: 20px;
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(93, 173, 226, 0.5);
+    /* box-shadow: 0 4px 12px rgba(93, 173, 226, 0.5); */
 }
 
-.add-patient-form-container h2{
+.add-patient-form-container h2 {
     margin-bottom: 60px;
 }
 
@@ -22,7 +22,6 @@
 .patient-form {
     display: flex;
     flex-direction: column;
-   
 }
 
 .form-section1 {
@@ -32,9 +31,9 @@
 .form-grid1 {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
+    gap: 30px; /* This controls the gap between input fields */
 }
-
+.add-patient-form-container
 .form-group {
     display: flex;
     flex-direction: column;
@@ -48,9 +47,10 @@
 
 .form-group input {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #cccccc;
     border-radius: 4px;
     transition: border-color 0.3s;
+    width: 100%;
 }
 
 .form-group input:focus {

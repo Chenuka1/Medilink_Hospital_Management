@@ -39,20 +39,20 @@
 }
 
 /* Styling for the form group (label and input) */
-.form-group {
+.login-container  .form-group {
   margin-bottom: 20px;
   text-align: left;
 }
 
 /* Styling for labels */
-.form-group label {
+.login-container .form-group label {
   display: block;
   margin-bottom: 8px;
   font-size: 15px;
   color: #444;
 }
 
-/* Styling for input fields */
+.login-container
 .form-group input[type="text"],
 .form-group input[type="password"] {
   width: 100%;
@@ -62,9 +62,9 @@
   border: 1px solid #ddd;
   box-sizing: border-box;
   transition: all 0.3s ease;
-  background-color: #f7f7f7;
+ 
 }
-
+.login-container
 .form-group input[type="text"]:focus,
 .form-group input[type="password"]:focus {
   border-color: #007bff;
@@ -74,13 +74,14 @@
 }
 
 /* Styling for the buttons */
+.login-container
 .form-buttons {
   display: flex;
-  justify-content: space-between;
+  border-radius: 10px;
   align-items: center;
   margin-top: 25px;
 }
-
+.login-container
 .btn {
   padding: 14px 24px;
   font-size: 16px;
@@ -89,29 +90,34 @@
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
-
+.login-container
 .btn-submit {
   background-color: #007bff;
   color: #fff;
-  padding:10px;
+  padding:10px 50px;
+  border-radius: 5px;
+  margin-right: 20px;
+  border:none;
 }
-
+.login-container
 .btn-reset {
   background-color: red;
   color: #fff;
-  padding: 10px;
-  margin-left:10px
+  padding: 10px 50px;
+  margin-left:10px;
+  border-radius: 5px;
+  border:none;
 }
-
+.login-container
 .btn:hover {
   opacity: 0.95;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
-
+.login-container
 .btn-submit:hover {
   background-color: #0056b3;
 }
-
+.login-container
 .btn-reset:hover {
   background-color: #5a6268;
 }

@@ -1,14 +1,15 @@
 /* General Styles */
 .register-medicines-section {
-    width: 80%;
+    width: 90%;
+    max-width: 1200px; /* Limit max width for larger screens */
     margin: auto;
     padding: 20px;
-    background-color: #f7f9fc;
+    background-color: white;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
-h1 {
+.register-medicines-section h1 {
     text-align: center;
     color: #2c3e50;
     margin-bottom: 30px;
@@ -18,15 +19,30 @@ h1 {
 
 .search-add-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; 
+    align-items: center; 
     margin-bottom: 20px;
 }
 
+@media (min-width: 600px) {
+    .search-add-container {
+        flex-direction: row; /* Row layout for larger screens */
+        justify-content: space-between;
+    }
+
+    .search-add-container input[type="search"] {
+        width: 60%; /* Maintain width for larger screens */
+    }
+
+    .add-medicine-btn {
+        margin-top: 0; /* Remove margin for larger screens */
+    }
+}
+
 /* Search Bar */
-input[type="search"] {
+.register-medicines-section input[type="search"] {
     padding: 10px;
-    width: 60%;
+    width: 50%; /* Full width on small screens */
     border-radius: 25px;
     border: 1px solid #ccc;
     outline: none;
@@ -34,19 +50,30 @@ input[type="search"] {
     transition: all 0.3s ease;
 }
 
-input[type="search"]:focus {
+.register-medicines-section select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.register-medicines-section input[type="search"]:focus {
     border-color: #007bff;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 /* Table Styles */
-.medicine-table {
+.register-medicines-section .medicine-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
 }
 
-.medicine-table th, .medicine-table td {
+.register-medicines-section .medicine-table th,
+.register-medicines-section .medicine-table td {
     padding: 15px;
     border: 1px solid #ddd;
     text-align: left;
@@ -54,17 +81,17 @@ input[type="search"]:focus {
     transition: all 0.2s ease;
 }
 
-.medicine-table th {
+.register-medicines-section .medicine-table th {
     background-color: #007bff;
     color: white;
     font-weight: bold;
 }
 
-.medicine-table tr:hover td {
+.register-medicines-section .medicine-table tr:hover td {
     background-color: #f1f1f1;
 }
 
-.medicine-table td {
+.register-medicines-section .medicine-table td {
     background-color: white;
 }
 
@@ -117,7 +144,8 @@ input[type="search"]:focus {
     background-color: white;
     padding: 30px;
     border-radius: 10px;
-    width: 40%;
+    width: 90%; /* Full width on small screens */
+    max-width: 600px; /* Limit max width for larger screens */
     position: relative;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
@@ -144,63 +172,37 @@ h2 {
 }
 
 /* Form Styling */
-.form-group {
+.register-medicines-section .form-group {
     margin-bottom: 20px;
 }
 
-label {
+.register-medicines-section label {
     display: block;
     font-weight: bold;
     margin-bottom: 8px;
     color: #2c3e50;
 }
 
-input[type="text"], input[type="number"] {
+.register-medicines-section input[type="text"],
+.register-medicines-section input[type="number"] {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 1rem;
-    outline: none;
-    transition: all 0.3s ease;
 }
 
-input[type="text"]:focus, input[type="number"]:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .register-medicines-section h1 {
+        font-size: 2rem;
+    }
 
-/* Submit Button */
-.submit-btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
+    .register-medicines-section .medicine-table th,
+    .register-medicines-section .medicine-table td {
+        font-size: 0.9rem; 
+    }
 
-.submit-btn:hover {
-    background-color: #0056b3;
-}
-
-@media screen and (max-width: 768px) {
     .popup-content1 {
-        width: 80%;
-    }
-
-    .register-medicines-section {
-        width: 95%;
-    }
-
-    input[type="search"] {
-        width: 80%;
-    }
-
-    .add-medicine-btn {
-        width: 100%;
+        padding: 20px; /* Adjust padding for popup */
     }
 }

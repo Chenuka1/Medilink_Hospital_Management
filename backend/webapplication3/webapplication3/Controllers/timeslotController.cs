@@ -41,6 +41,36 @@ namespace webapplication3.Controllers
             return Ok(timeslots);
         }
 
+
+
+
+
+
+        //api/Timeslot/Doctor/{doctorName}
+        [HttpGet("Doctor/{doctorName}")]
+        public async Task<ActionResult<IEnumerable<MED_TIMESLOT>>> GetTimeslotsByDoctor(string doctorName)
+        {
+            
+            var timeslots = await _context.MED_TIMESLOT
+                                          .Where(t => t.MT_DOCTOR == doctorName)
+                                          .ToListAsync();
+
+            if (timeslots == null || !timeslots.Any())
+            {
+                return NotFound($"No timeslots found for doctor: {doctorName}");
+            }
+
+            return Ok(timeslots);
+        }
+
+
+
+
+
+
+
+
+
         // POST: api/Timeslot
         [HttpPost]
         public async Task<ActionResult<MED_TIMESLOT>> PostTimeslot(MED_TIMESLOT timeslot)
@@ -73,74 +103,7 @@ namespace webapplication3.Controllers
             return NoContent();
         }
 
-        /*// PATCH: api/Timeslot/5
-        [HttpPatch("{id}")]
-        public async Task<IActionResult> PatchTimeslot(int id)
-        {
-            var timeslot = await _context.MED_TIMESLOT.FindAsync(id);
 
-            if (timeslot == null)
-            {
-                return NotFound();
-            }
-
-            // Add 15 minutes to the timeslot
-            var newTimeslot = timeslot.MT_TIMESLOT.Add(new TimeSpan(0, 15, 0));
-
-            // Check if the updated timeslot is equal to or greater than the end time
-            if (newTimeslot >= timeslot.MT_END_TIME)
-            {
-                // If the new timeslot reaches or exceeds the end time, remove the current timeslot
-                _context.MED_TIMESLOT.Remove(timeslot);
-                await _context.SaveChangesAsync();
-
-                return BadRequest("Appointments are finished. No further slots available.");
-            }
-
-            // If the timeslot is valid, update the current timeslot and increment the seat number
-            timeslot.MT_TIMESLOT = newTimeslot;
-            timeslot.MT_SEAT_NUMBER += 1;
-
-            _context.Entry(timeslot).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!TimeslotExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }*/
-
-        /*
-                [HttpPatch("{id}")]
-                public async Task <IActionResult>Patchseatnum(int id)
-                {
-
-                    var timeslot = await _context.MED_TIMESLOT.FindAsync(id);
-
-                    if (timeslot == null)
-                    {
-
-
-                        return NOtFound();
-
-
-
-                    }
-
-
-                }*/
 
         [HttpPatch("{id}/incrementSeat")]
         public async Task<IActionResult> Patchseatnum(int id)
@@ -153,14 +116,17 @@ namespace webapplication3.Controllers
                 return NotFound();
             }
 
-           
-            if (timeslot.MT_MAXIMUM_PATIENTS.HasValue && timeslot.MT_SEAT_NUMBER >= timeslot.MT_MAXIMUM_PATIENTS)
+            // Check if the maximum number of patients is reached
+            if (timeslot.MT_MAXIMUM_PATIENTS.HasValue && timeslot.MT_PATIENT_NO >= timeslot.MT_MAXIMUM_PATIENTS)
             {
                 return BadRequest("No more seats available.");
             }
 
             // Increment the seat number
-            timeslot.MT_SEAT_NUMBER += 1;
+            timeslot.MT_PATIENT_NO += 1;
+
+            timeslot.MT_ALLOCATED_TIME = timeslot.MT_ALLOCATED_TIME + TimeSpan.FromMinutes(10);
+
 
             // Mark the timeslot as modified
             _context.Entry(timeslot).State = EntityState.Modified;
@@ -183,6 +149,10 @@ namespace webapplication3.Controllers
 
             return NoContent();
         }
+
+
+
+
 
 
 

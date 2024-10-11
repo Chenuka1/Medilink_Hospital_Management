@@ -19,9 +19,7 @@ export default function Registermedicine() {
     const [medicines, setMedicines] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
     const [error, setError] = useState(""); 
-    const [editMode, setEditMode] = useState(false); // Track whether updating or adding new medicine
-
-    // Fetch available medicines
+    const [editMode, setEditMode] = useState(false); 
     useEffect(() => {
         const fetchMedicines = async () => {
             try {
@@ -220,6 +218,7 @@ export default function Registermedicine() {
                                     value={form.MMC_UNIT}
                                     onChange={handleChange}
                                     required
+                                    placeholder="Enter Unit Mg,g"
                                 />
                             </div>
 
@@ -230,18 +229,24 @@ export default function Registermedicine() {
                                     name="MMC_REORDER_LEVEL"
                                     value={form.MMC_REORDER_LEVEL}
                                     onChange={handleChange}
+                                    placeholder="enter quantity"
                                 />
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="MMC_STATUS">Status</label>
-                                <input
-                                    type="text"
-                                    name="MMC_STATUS"
-                                    value={form.MMC_STATUS}
-                                    onChange={handleChange}
-                                />
-                            </div>
+                       <label htmlFor="MMC_STATUS">Status</label>
+                  <select
+                  name="MMC_STATUS"
+                  value={form.MMC_STATUS}
+                  onChange={handleChange}
+                  required
+                   >
+        <option value="">Select Status</option>
+        <option value="A">Active</option>
+        <option value="I">Inactive</option>
+    </select>
+    </div>
+
 
                             <div className="form-group">
                                 <label htmlFor="MMC_RATE">Rate</label>

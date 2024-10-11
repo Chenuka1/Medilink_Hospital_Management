@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import '../styles/availableTimeslots.css'; 
+import Navbar from "../components/navbar";
 
 export default function Appointment() {
   const [showDialog, setShowDialog] = useState(false);
@@ -9,6 +10,8 @@ export default function Appointment() {
   const [fullName, setFullName] = useState('');
   const [contact, setContact] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  
+  const [query, setQuery] = useState("");
 
   const closeDialog = () => {
     setShowDialog(false);
@@ -42,7 +45,7 @@ export default function Appointment() {
   const handleUpdate = async () => {
     try {
       await axios.patch(`https://localhost:7132/api/Timeslot/${selectedTimeslot.MT_SLOT_ID}/incrementSeat`, {
-        seat_number: selectedTimeslot.mt_seat_number + 1
+        patient_number: selectedTimeslot.mt_patient_number + 1
       });
     } catch (error) {
       if (error.response) {
@@ -60,7 +63,7 @@ export default function Appointment() {
       const appointmentData = {
         MAD_FULL_NAME: fullName,
         MAD_CONTACT: contact,
-        MAD_SEAT_NO: selectedTimeslot.MT_SEAT_NUMBER + 1,
+        MAD_PATIENT_NO: selectedTimeslot.MT_PATIENT_NO + 1,
         MAD_APPOINMENT_DATE: selectedTimeslot.MT_SLOT_DATE,
         MAD_START_TIME: selectedTimeslot.MT_START_TIME,
         MAD_END_TIME: selectedTimeslot.MT_END_TIME,
@@ -90,7 +93,10 @@ export default function Appointment() {
   }, []);
 
   return (
-    <div className="appointment-container">
+    <div>
+
+<div className="appointment-container">
+     <Navbar/>
       <div className="timeslot-container">
         {timeslotData.length > 0 ? (
           <div className="timeslot-grid">
@@ -115,7 +121,7 @@ export default function Appointment() {
                   </p>
                 </div>
                 <div className="timeslot-body1">
-                  <p><strong>Your patient number:</strong> {timeslot.MT_SEAT_NUMBER}</p>
+                  <p><strong>Your patient number:</strong> {timeslot.MT_PATIENT_NO}</p>
                 </div>
                 <button
                   type="button"
@@ -153,6 +159,7 @@ export default function Appointment() {
                   onChange={(e) => setContact(e.target.value)}
                 />
               </div>
+
               {errorMessage && <p className="error-message">{errorMessage}</p>}
               <div className="dialog-buttons">
                 <button onClick={handleConfirm} className="btn-primary">
@@ -166,6 +173,7 @@ export default function Appointment() {
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 }

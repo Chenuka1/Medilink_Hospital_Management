@@ -38,41 +38,42 @@ namespace webapplication3.Controllers
 
             return Ok(patient);
         }
+
         [HttpPost]
-        public async Task<ActionResult<MED_PATIENTS_DETAILS>> PostPatient(MED_PATIENTS_DETAILS patient)
+        public async Task<IActionResult> AddPatient([FromBody] MED_PATIENTS_DETAILS patient)
         {
-            string newPatientId;
-            try
+            // Start transaction for ID generation and saving patient details
+            using (var transaction = await _context.Database.BeginTransactionAsync())
             {
-                // Use a transaction to handle concurrency
-                using (var transaction = await _context.Database.BeginTransactionAsync())
+                try
                 {
+                    // Ensure the ID starts with "PA" followed by a 4-digit number
+                    string prefix = "PA";
+                    string newPatientId;
+
+                    // Retrieve the last patient ID to increment the numeric part
                     var lastPatient = await _context.MED_PATIENTS_DETAILS
                         .OrderByDescending(p => p.MPD_PATIENT_CODE)
                         .FirstOrDefaultAsync();
 
-                    if (lastPatient == null)
+                    if (lastPatient != null && lastPatient.MPD_PATIENT_CODE.StartsWith(prefix))
                     {
-                        newPatientId = "PA1";
-                    }
-                    else
-                    {
-                        string lastId = lastPatient.MPD_PATIENT_CODE;
-                        string prefix = lastId.Substring(0, 2); // Extract prefix
-                        string numericPartStr = lastId.Substring(2); // Extract numeric part
-
-                        if (int.TryParse(numericPartStr, out int numericPart))
+                        // Extract the numeric part of the last patient ID and increment it
+                        var numericPart = lastPatient.MPD_PATIENT_CODE.Substring(prefix.Length);
+                        if (int.TryParse(numericPart, out int newNumericPart))
                         {
-                            // Determine the length of the numeric part
-                            int newNumericPart = numericPart + 1;
-                            int length = numericPartStr.Length;
-                            // Ensure zero-padding for the numeric part
-                            newPatientId = prefix + newNumericPart.ToString("D" + length);
+                            newNumericPart++; // Increment the numeric part
+                            newPatientId = prefix + newNumericPart.ToString("D4"); // Ensure zero-padding to 4 digits
                         }
                         else
                         {
                             return Conflict("Patient ID format is invalid.");
                         }
+                    }
+                    else
+                    {
+                        // If there is no last patient or the format doesn't match, start from PA0001
+                        newPatientId = prefix + "0001";
                     }
 
                     // Check if the generated ID already exists
@@ -82,38 +83,76 @@ namespace webapplication3.Controllers
                         return Conflict("A patient with this ID already exists.");
                     }
 
+                    // Assign the generated patient ID to the new patient
                     patient.MPD_PATIENT_CODE = newPatientId;
                     _context.MED_PATIENTS_DETAILS.Add(patient);
                     await _context.SaveChangesAsync();
                     await transaction.CommitAsync();
                 }
-            }
-            catch (DbUpdateException)
-            {
-                // Handle the case where the ID generation logic still results in a duplicate
-                return Conflict("A patient with this ID already exists.");
-            }
-            catch (Exception ex)
-            {
-                // Handle unexpected exceptions
-                return StatusCode(500, $"Internal server error: {ex.Message}");
+                catch (DbUpdateException)
+                {
+                    // Handle the case where the ID generation logic still results in a duplicate
+                    return Conflict("A patient with this ID already exists.");
+                }
+                catch (Exception ex)
+                {
+                    // Handle unexpected exceptions
+                    return StatusCode(500, $"Internal server error: {ex.Message}");
+                }
             }
 
+            // Return the newly created patient with their ID
             return CreatedAtAction(nameof(GetPatientById), new { id = patient.MPD_PATIENT_CODE }, patient);
         }
 
 
 
-
-
-
         // PUT: api/Patient/{id}
-        [HttpPut("{id}")]
+        /*[HttpPut("{id}")]
         public async Task<IActionResult> PutPatient(string id, MED_PATIENTS_DETAILS patient)
         {
             if (id != patient.MPD_PATIENT_CODE)
             {
                 return BadRequest();
+            }
+
+            _context.Entry(patient).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!PatientExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }*/
+
+
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutPatient(string id, [FromForm] MED_PATIENTS_DETAILS patient, IFormFile? profileImage)
+        {
+            if (id != patient.MPD_PATIENT_CODE)
+            {
+                return BadRequest();
+            }
+
+            if (profileImage != null)
+            {
+                using (var memoryStream = new MemoryStream())
+                {
+                    await profileImage.CopyToAsync(memoryStream);
+                    patient.MPD_PHOTO = memoryStream.ToArray(); // Store the image as a byte array
+                }
             }
 
             _context.Entry(patient).State = EntityState.Modified;
@@ -152,6 +191,27 @@ namespace webapplication3.Controllers
 
             return NoContent();
         }
+
+
+
+        [HttpGet("patient/findbyemail")]
+        public async Task<IActionResult> FindPatientByEmail(string email)
+        {
+            var patient = await _context.MED_PATIENTS_DETAILS
+                .Where(p => p.MPD_EMAIL == email)
+                .FirstOrDefaultAsync(); 
+
+            if (patient == null)
+            {
+                return NotFound(); 
+            }
+
+            return Ok(patient);
+        }
+
+
+
+
 
         // GET: api/Patient/SearchByContact/{contact}
         [HttpGet("SearchByContact/{contact}")]

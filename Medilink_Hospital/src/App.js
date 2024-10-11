@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from './pages/login';
-import Patientregister from './pages/Patientregister';
 import Addtimeslot from './components/addTimeslot';
 import Appoinment from './pages/appoinment';
 import Home from './pages/Home'; 
@@ -16,18 +15,37 @@ import Adduser from './components/adduser';
 import ViewRecord from './components/viewRecord';
 import Invoice from './components/invoice';
 import AvailableTimeslots from './components/availableTimeslot';
+import Aboutus from "./pages/aboutus";
+import Remarks from "./components/remarks";
+import Pharmacy from "./components/pharmacy";
+import Pharmacyinvoice from "./components/pharmacyinvoice";
+import Userregistration from "./components/userRegistration";
+import Pmedicalhistory from "./pages/patientmedicalhistory";
+import Patientlogin from "./pages/patientlogin";
+import LoginSelector from "./components/loginselector";
+import AppoinmentHistory from "./pages/appoinmentHistory";
+import PatientAppointment from "./components/patientappoinment";
+import Profile from "./pages/profile";
 
-// Helper function to check for a valid JWT and role (Doc or Admin)
+
 const ProtectedRoute = ({ element: Element, roles, ...rest }) => {
   const token = localStorage.getItem("Token");
   const userRole = localStorage.getItem("Role");
 
-  if (!token || !roles.includes(userRole)) {
-    return <Navigate to="/login" />;
+  // If no token is found, redirect to login
+  if (!token) {
+    return <Navigate to="/login" replace />;
   }
-  
-  return <Element />;
+
+  // If the user's role is not allowed, redirect to login
+  if (!roles.includes(userRole)) {
+    return <Navigate to="/login" replace />;
+  }
+
+  // Render the component if both token and role are valid
+  return <Element {...rest} />;
 };
+
 
 function App() {
   return (
@@ -35,11 +53,16 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Patientregister />} />
-          <Route path="/Appoinment" element={<Appoinment />} />
-          <Route path="/add-user" element={<Adduser/>}/>
+          <Route path="/" element={<LoginSelector />} />
+          <Route path="/home" element={<Home/>}/>
+          <Route path="/patient-login" element={<Patientlogin/>}/>
           <Route path="/available-time" element={<AvailableTimeslots/>}/>
+          <Route path="/about-us" element={<Aboutus/>}/>
+          <Route path="/register-user" element={<Userregistration/>}/>
+          <Route path="/medical-history" element={<Pmedicalhistory/>}/>
+          <Route path="/appoinment-history" element={<AppoinmentHistory/>}/>
+          <Route path="/appoinment" element={<PatientAppointment/>}/>
+          <Route path="/profile" element={<Profile/>}/>
 
           {/* Protected Doctor and Admin Dashboard Routes */}
           <Route path="/dashboard/*" element={<ProtectedRoute element={Doctordashboard} roles={['Doc', 'Admin']} />}>
@@ -53,11 +76,19 @@ function App() {
             <Route path="view-record/:patientId/:serial_no" element={<ProtectedRoute element={ViewRecord} roles={['Doc', 'Admin']} />} />
             <Route path="add-timeslot" element={<ProtectedRoute element={Addtimeslot} roles={['Doc', 'Admin']} />} />
             <Route path="invoice/:patientId/:serial_no" element={<ProtectedRoute element={Invoice} roles={['Doc', 'Admin']} />} />
+            <Route path="remark/:patientId/:serial_no" element={<ProtectedRoute element={Remarks} roles={['Doc','Admin']}/>}/>
+            <Route path="pharmacy" element={<ProtectedRoute element={Pharmacy} roles={['Doc','Admin','Phuser']}/>}/>
+            <Route path="Add-users" element={<ProtectedRoute element={Adduser} roles={['Doc','Phuser']}/>}/>
+            <Route path="pharmacy-invoice/:patientId/:serial_no" element={<Pharmacyinvoice/>}/>
+            <Route path="daily-appoinments" element={<ProtectedRoute element={Dailyappoinment} roles={['Doc']}/>}/>
+            
+            
+            
           </Route>
-        </Routes>
+        </Routes> 
       </BrowserRouter>
     </div>
-  );
+  );                  
 }
 
 export default App;

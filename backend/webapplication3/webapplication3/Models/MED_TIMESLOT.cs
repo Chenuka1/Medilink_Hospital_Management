@@ -18,9 +18,16 @@ namespace webapplication3.Models
 
         public TimeSpan MT_END_TIME { get; set; }
 
-        public int  MT_SEAT_NUMBER { get; set; }
+        public int  MT_PATIENT_NO { get; set; }
 
         public int? MT_MAXIMUM_PATIENTS {  get; set; }
+
+
+        public string? MT_DOCTOR { get; set; }
+
+        public TimeSpan? MT_ALLOCATED_TIME { get; set; }
+
+       
 
     }
 }

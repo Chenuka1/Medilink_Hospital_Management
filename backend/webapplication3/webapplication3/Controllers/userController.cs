@@ -1,9 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using webapplication3.Data;
 using webapplication3.Models;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace webapplication3.Controllers
 {
@@ -18,23 +23,72 @@ namespace webapplication3.Controllers
             _context = context;
         }
 
-        // POST: api/User
         [HttpPost]
-        public async Task<ActionResult<MED_USER_DETAILS>> PostUser(MED_USER_DETAILS userDetails)
+        public async Task<ActionResult<MED_USER_DETAILS>> PostUser([FromForm] MED_USER_DETAILS userDetails, [FromForm] IFormFile? profileImage)
         {
             if (userDetails == null)
             {
-                return BadRequest();
+                return BadRequest("User details cannot be null.");
             }
 
             // Generate the new ID
             userDetails.MUD_USER_ID = await GenerateUserIdAsync();
 
+            // Set created and updated date
+            userDetails.MUD_CREATED_DATE = DateTime.UtcNow;
+           
+
+            // Handle the profile image only if provided
+            if (profileImage != null && profileImage.Length > 0)
+            {
+                var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "uploads");
+                if (!Directory.Exists(uploadsFolder))
+                {
+                    Directory.CreateDirectory(uploadsFolder);
+                }
+
+                var filePath = Path.Combine(uploadsFolder, profileImage.FileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await profileImage.CopyToAsync(stream);
+                }
+                userDetails.MUD_PROFILE_IMAGE = filePath; // Save the path to the database
+            }
+            else
+            {
+                userDetails.MUD_PROFILE_IMAGE = null; // No image uploaded
+            }
+
+            
             _context.MED_USER_DETAILS.Add(userDetails);
-            await _context.SaveChangesAsync();
+           await _context.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetUserById), new { id = userDetails.MUD_USER_ID }, userDetails);
         }
+
+        [HttpGet("doctorname/specialization")]
+        public async Task<ActionResult<MED_USER_DETAILS>> GetDoctors(string? name, string? specialization)
+        {
+            // Correct LINQ query with logical OR
+            var users = await _context.MED_USER_DETAILS
+                .Where(d => d.MUD_USER_NAME == name || d.MUD_SPECIALIZATION == specialization)
+                .ToListAsync();
+
+            if (!users.Any())
+            {
+                return NotFound("No doctors found with the provided name or specialization.");
+            }
+
+            return Ok(users);
+        }
+
+
+
+
+
+
+
+
 
         // GET: api/User/{id}
         [HttpGet("{id}")]
@@ -45,12 +99,13 @@ namespace webapplication3.Controllers
 
             if (userDetails == null)
             {
-                return NotFound();
+                return NotFound("User not found.");
             }
 
             return userDetails;
         }
 
+        // Helper method to generate user ID
         // Helper method to generate user ID
         private async Task<string> GenerateUserIdAsync()
         {
@@ -60,14 +115,52 @@ namespace webapplication3.Controllers
 
             if (lastUser == null)
             {
-                return "us1"; // Start from us1 if no users exist
+                return "User001"; 
             }
 
             string lastId = lastUser.MUD_USER_ID;
-            int lastNumber = int.Parse(lastId.Substring(2)); // Extract the number part
+            int lastNumber = int.Parse(lastId.Substring(4)); // Extract the number part after "User"
 
-            // Increment and return the new ID without leading zeros
-            return $"us{(lastNumber + 1)}";
+           
+            return $"User{(lastNumber + 1).ToString("D3")}";
         }
+
+
+
+        // GET: api/User/suggest?query={username}
+        [HttpGet("suggest")]
+        public async Task<ActionResult<IEnumerable<string>>> GetUsernameSuggestions(string query)
+        {
+            if (string.IsNullOrEmpty(query))
+            {
+                return BadRequest("Query parameter is required.");
+            }
+
+            var usernames = await _context.MED_USER_DETAILS
+                .Where(u => u.MUD_USER_NAME.Contains(query))
+                .Select(u => u.MUD_USER_NAME)
+                .Take(10) 
+                .ToListAsync();
+
+            if (usernames == null || usernames.Count == 0)
+            {
+                return NotFound("No matching usernames found.");
+            }
+
+            return Ok(usernames);
+        }
+
+        
+
+
+
+        
+
+
+
+
+
+
+
     }
 }

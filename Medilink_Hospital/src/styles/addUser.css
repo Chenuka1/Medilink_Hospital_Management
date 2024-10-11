@@ -1,81 +1,99 @@
-/* Main container with background image */
-.main-container {
-    background-image: url('../assets/bg4.webp');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-/* Container for the form */
-.register-user-container {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 40px 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    max-width: 450px;
-    width: 100%;
-}
-
-/* Form Styling */
-.user-form {
+.register-container {
     display: flex;
     flex-direction: column;
-}
-
-/* Group Styling */
-.form-group {
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* background-color: black; */
+  }
+  
+  .register-header {
+    font-size: 36px;
+    color: #34a853;
     margin-bottom: 20px;
-}
-
-.form-label {
-    margin-bottom: 10px;
-    font-weight: bold;
-    color: #333;
-    font-size: 1.1rem;
-}
-
-.form-input {
-    padding: 12px;
-    border: 1px solid #cccccc;
-    border-radius: 6px;
-    font-size: 16px;
+  }
+  
+  .form-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
     width: 100%;
-    box-sizing: border-box;
-}
-
-/* Button Styling */
-.form-submit-button {
-    padding: 12px;
-    background-color: #0077ff;
-    color: white;
-    border: none;
-    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .image-container {
+    position: relative;
+    margin-bottom: 30px;
+  }
+  
+  .profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .edit-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50%;
+    padding: 5px;
     cursor: pointer;
-    font-size: 16px;
+  }
+  
+  .register-form {
     width: 100%;
-    margin-top: 15px;
-    box-sizing: border-box;
-    transition: background-color 0.3s ease;
-}
-
-.form-submit-button:hover {
-    background-color: blue;
-}
-
-/* Error message styling */
-.error-message {
-    color: red;
-    margin-top: 10px;
-    font-size: 0.9rem;
-}
-
-/* Form heading styling */
-.user-form h1 {
+  }
+  
+  .input-row {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 20px;
-    font-size: 2rem;
-    color: #333;
-    text-align: center;
+  }
+  
+  .input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 15px 10px;
+  }
+  
+  .input-group label {
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  
+  .input-group input, .input-group select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+  
+  .register-btn {
+    width: 30%;
+    padding: 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 auto; /* Center the button */
+    display: block; /* Ensure block-level element for centering */
 }
+
+  
+  .register-btn:hover {
+    background-color: #0056b3;
+  }
+  

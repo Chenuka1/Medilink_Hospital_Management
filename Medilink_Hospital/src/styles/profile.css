@@ -1,0 +1,114 @@
+.profile-container {
+  padding: 40px;
+  max-width: 900px;
+  margin: 40px auto;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+  font-size: 2em;
+  color: #333;
+  margin-bottom: 30px;
+  border-bottom: 2px solid #007BFF;
+  padding-bottom: 10px;
+}
+
+.profile-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.profile-container
+.profile-icon {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #007BFF;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.profile-container
+.profile-icon:hover {
+  transform: scale(1.1);
+}
+.profile-container
+.profile-details form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.profile-input-group {
+  flex: 1 1 calc(50% - 20px);
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-input-group label {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.profile-input-group input {
+  padding: 12px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #ffffff;
+  transition: border-color 0.3s ease;
+}
+
+.profile-input-group input:focus {
+  border-color: #007BFF;
+}
+
+.button-group {
+  width: 100%;
+  text-align: right;
+  margin-top: 20px;
+}
+
+.save-button,
+.edit-button {
+  padding: 12px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-button:hover,
+.edit-button:hover {
+  background-color: #0056b3;
+}
+
+.user-appointments {
+  margin-top: 40px;
+}
+
+.appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.appointments-table th,
+.appointments-table td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: left;
+}
+
+.appointments-table th {
+  background-color: #007BFF;
+  color: #fff;
+}
+
+.appointments-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

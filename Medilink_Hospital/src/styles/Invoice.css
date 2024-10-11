@@ -7,6 +7,17 @@
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
 }
 
+.header2{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+
+
+}
+
 .invoice-header {
     display: flex;
     align-items: center;
@@ -24,58 +35,66 @@
     color: #007bff;
     text-align: right;
 }
+.invoice-container h1{
 
-.client-info {
-    margin-bottom: 20px;
-    font-size: 1.1em;
+    text-align: center;
 }
 
-.payment-method {
-    margin-bottom: 30px;
-    font-size: 1.1em;
+.invoice-container h3{
+
+    text-align:center ;
 }
 
-.payment-method label {
-    font-weight: bold;
-}
 
-.payment-method select {
-    padding: 10px;
-    width: 100%;
-    border-radius: 5px;
-    border: 1px solid #ced4da;
-    font-size: 1em;
-}
+.payment-info{
 
-.invoice-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 30px;
+    place-items: center;
+    align-items: center;
+    text-align: center;
+    
 }
-
-.invoice-table th, .invoice-table td {
-    padding: 15px;
+.payment-info {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
     text-align: left;
-    border: 1px solid #ddd;
+}
+.payment-info p {
+    display: flex;
+    align-items: center; 
+    line-height: 1.6em;
+    font-size: 1.2em;
+    margin: 10px 0;
+    justify-content: space-between;
 }
 
-.invoice-table th {
-    background-color: #f8f9fa;
+
+.payment-info strong {
     font-weight: bold;
 }
 
-.invoice-table td {
-    background-color: #fdfdfd;
+.payment-info input {
+    margin-left: 10px;
+    width: 80px;
+    padding: 5px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
-.total-section {
-    text-align: right;
-    font-size: 1.3em;
+/* Mobile responsiveness */
+       @media (max-width: 768px) {
+    .payment-info p {
+        flex-direction: column;  /* Stacks label and price on smaller screens */
+        align-items: flex-start;
+    }
 }
 
-.total-section p {
-    margin: 10px 0;
+.payment-info strong {
+    font-weight: normal;
 }
+
 
 .invoice-container input[type="number"] {
     width: 80px;
@@ -87,7 +106,7 @@
 
 .btn-container1 {
     display: flex;
-    justify-content: space-around;
+
     margin-top: 20px;
 }
 
@@ -98,6 +117,7 @@
     border-radius: 5px;
     color: white;
     cursor: pointer;
+    margin: auto 10px;
 }
 
 .print {
@@ -114,44 +134,46 @@
 
 .btn:hover {
     opacity: 0.9;
-}
+} 
 
-/* Invoice.css */
+
+
+
 
 @media print {
-    /* Hide elements that should not be printed */
-    .btn-container1,
-    .payment-method {
-        display: none;
-    }
-
-    /* Ensure the invoice takes full width and no margins */
-    .invoice-container {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    /* Avoid breaking the layout when printing */
     body * {
         visibility: hidden;
     }
 
-    .invoice-container,
-    .invoice-container * {
+    .invoice-container, .invoice-container * {
         visibility: visible;
     }
 
+  
     .invoice-container {
         position: absolute;
-        top: 0;
         left: 0;
-        right: 0;
+        top: 0;
+        width: 100%;
     }
+
+    
+    .hide-elements, .btn-container1 {
+        display: none !important;
+    }
+
+
+    
+
+    
 }
+
+
+
 /* CSS to hide buttons and payment type during download */
-.hide-elements .btn-container1,
-.hide-elements .payment-method {
+.hide-elements .btn-container1 {
     display: none;
 }
+
+
 

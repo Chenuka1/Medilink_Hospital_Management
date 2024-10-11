@@ -1,0 +1,156 @@
+/* Container for the form and timeslot section */
+.addtimeslot-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f7f8fa;
+}
+
+/* Grid layout for the timeslot form */
+.form-timeslot {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  width: 100%;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  column-gap: 3rem; /* Added larger gap between left and right columns */
+  row-gap: 1.5rem; /* Adjust row gap for consistency */
+}
+
+/* Styling individual form groups in grid */
+.form-group-timeslot {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+/* Labels aligned above inputs */
+.form-group-timeslot label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+/* Input field style */
+.form-group-timeslot input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+/* Add hover and focus effects */
+.form-group-timeslot input:focus {
+  border-color: #007bff;
+}
+
+/* Full-width search field for doctor name */
+.form-group-timeslot.full-width {
+  grid-column: span 2; /* Span the entire width */
+}
+
+/* Suggestions list styling */
+.doctor-suggestions {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-top: 0.5rem;
+}
+
+/* Individual suggestion item */
+.doctor-suggestions li {
+  padding: 0.75rem;
+  cursor: pointer;
+}
+
+/* Hover effect on suggestion item */
+.doctor-suggestions li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Submit button full-width */
+.submit-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  grid-column: span 2; /* Span full width */
+}
+
+/* Button hover effect */
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+/* Error message style */
+.error-message {
+  color: red;
+  margin-top: 1rem;
+  grid-column: span 2;
+}
+
+/* Styling the timeslot section */
+.view-timeslots {
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+}
+
+.timeslot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.timeslot-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.timeslot-card:hover {
+  transform: translateY(-5px);
+}
+
+.no-appointments {
+  font-size: 1.25rem;
+  color: #555;
+  text-align: center;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+  .form-timeslot {
+      grid-template-columns: 1fr; /* Single-column layout on small screens */
+      padding: 1.5rem;
+  }
+
+  .submit-button {
+      font-size: 0.9rem;
+      padding: 0.6rem 1rem;
+  }
+
+  .timeslot-grid {
+      grid-template-columns: 1fr;
+  }
+}

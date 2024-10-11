@@ -105,6 +105,7 @@ namespace webapplication3.Controllers
             return NoContent();
         }
 
+
         // DELETE: api/Drug/{patientCode}/{serialNo}/{materialCode}
         [HttpDelete("{patientCode}/{serialNo}/{materialCode}")]
         public async Task<IActionResult> DeleteDrug(string patientCode, int serialNo, string materialCode)

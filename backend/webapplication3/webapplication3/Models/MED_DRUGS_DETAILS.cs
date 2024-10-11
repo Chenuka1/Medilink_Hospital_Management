@@ -29,7 +29,7 @@ namespace webapplication3.Models
         public decimal MDD_AMOUNT { get; set; }
 
         
-        public string MDD_DOSAGE { get; set; }
+        public string? MDD_DOSAGE { get; set; }
 
        
         public string MDD_TAKES { get; set; }

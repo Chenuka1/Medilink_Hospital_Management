@@ -15,7 +15,7 @@ namespace webapplication3.Models
 
         public string MAD_CONTACT { get; set; }
 
-        public int MAD_SEAT_NO { get; set; }
+        public int? MAD_PATIENT_NO { get; set; }
 
         public TimeSpan  MAD_START_TIME { get; set; }
 
@@ -24,6 +24,14 @@ namespace webapplication3.Models
 
 
         public DateTime MAD_APPOINMENT_DATE { get; set; }
+
+
+        public string? MAD_DOCTOR {  get; set; }
+
+
+        public string? MAD_EMAIL { get; set; }
+
+        public TimeSpan? MAD_ALLOCATED_TIME { get; set; }
 
 
 

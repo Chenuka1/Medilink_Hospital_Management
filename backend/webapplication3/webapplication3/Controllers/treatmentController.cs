@@ -19,20 +19,7 @@ namespace webapplication3.Controllers
             _context = context;
         }
 
-        // POST: api/treatment
-        /*[HttpPost]
-        public async Task<ActionResult<MED_TREATMENT_DETAILS>> PostTreatment(MED_TREATMENT_DETAILS treatment)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
 
-            _context.MED_TREATMENT_DETAILS.Add(treatment);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction(nameof(GetById), new { id = treatment.MTD_SERIAL_NO }, treatment);
-        }*/
 
 
         // GET: api/treatment/{patientId}/{serialNo}
@@ -139,6 +126,78 @@ namespace webapplication3.Controllers
 
             return Ok(result);
         }
+
+
+        [HttpGet("preparationcomplete/")]
+        public async Task<IActionResult> GetPreparationCompleteDetails()
+        {
+            var result = await (from t in _context.MED_TREATMENT_DETAILS
+                                join p in _context.MED_PATIENTS_DETAILS
+                                on t.MTD_PATIENT_CODE equals p.MPD_PATIENT_CODE
+                                where t.MTD_TREATMENT_STATUS == "P" // Filter for treatment status 'P'
+                                select new
+                                {
+                                    // Patient details
+                                    p.MPD_PATIENT_CODE,
+                                    p.MPD_PATIENT_NAME,
+                                    p.MPD_MOBILE_NO,
+                                    p.MPD_NIC_NO
+                                   /* p.MPD_CITY,
+                                    p.MPD_ADDRESS,
+                                    p.MPD_GUARDIAN,
+                                    p.MPD_GUARDIAN_CONTACT_NO,
+                                    p.MPD_birthdate*/,
+
+                                    // Treatment details
+                                    t.MTD_SERIAL_NO,
+                                    t.MTD_DATE,
+                                    t.MTD_DOCTOR,
+                                    t.MTD_TYPE,
+                                    t.MTD_COMPLAIN,
+                                    t.MTD_DIAGNOSTICS,
+                                    t.MTD_REMARKS,
+                                    t.MTD_AMOUNT,
+                                    t.MTD_PAYMENT_STATUS,
+                                    t.MTD_TREATMENT_STATUS
+                                }).ToListAsync();
+
+            if (!result.Any())
+            {
+                return NotFound("No patients found with treatment preparation status 'P'.");
+            }
+
+            return Ok(result);
+        }
+
+
+        [HttpPatch("update/status/{patientId}/{serialNo}")]
+        public async Task<IActionResult> UpdateTreatmentStatus(string patientId, int serialNo)
+        {
+            var treatment = await _context.MED_TREATMENT_DETAILS
+                                          .FirstOrDefaultAsync(t => t.MTD_PATIENT_CODE == patientId && t.MTD_SERIAL_NO == serialNo);
+
+            if (treatment == null)
+            {
+                return NotFound();
+            }
+
+            // Update the status to "C"
+            treatment.MTD_TREATMENT_STATUS = "C";
+            await _context.SaveChangesAsync();
+
+            return NoContent(); // Return a 204 No Content response
+        }
+
+
+
+
+
+
+
+
+
+
+
 
         [HttpGet("patient/record/{patientId}/{serialNo}")]
         public async Task<IActionResult> GetTreatmentRecord(string patientId, int serialNo)

@@ -8167,11 +8167,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\webapplication3.csproj",
-      "projectName": "webapplication3",
-      "projectPath": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\webapplication3.csproj",
+      "projectUniqueName": "D:\\Dockyard internships\\Despansary management system\\HospitralManagement\\backend\\webapplication3\\webapplication3\\PRMS.csproj",
+      "projectName": "PRMS",
+      "projectPath": "D:\\Dockyard internships\\Despansary management system\\HospitralManagement\\backend\\webapplication3\\webapplication3\\PRMS.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "D:\\Dockyard internships\\Despansary management system\\backend\\webapplication3\\webapplication3\\obj\\",
+      "outputPath": "D:\\Dockyard internships\\Despansary management system\\HospitralManagement\\backend\\webapplication3\\webapplication3\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
