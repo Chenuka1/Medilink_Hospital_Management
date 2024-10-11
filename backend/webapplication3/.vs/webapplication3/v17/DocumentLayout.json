@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Dockyard internships\\Despansary management system\\HospitralManagement\\backend\\webapplication3\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\PRMS.csproj|d:\\dockyard internships\\despansary management system\\hospitralmanagement\\backend\\webapplication3\\webapplication3\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\PRMS.csproj|solutionrelative:webapplication3\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\PRMS.csproj|d:\\dockyard internships\\despansary management system\\hospitralmanagement\\backend\\webapplication3\\webapplication3\\controllers\\timeslotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\PRMS.csproj|solutionrelative:webapplication3\\controllers\\timeslotcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,10 +35,6 @@
       "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\PRMS.csproj|solutionrelative:webapplication3\\controllers\\registerusercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\PRMS.csproj|d:\\dockyard internships\\despansary management system\\hospitralmanagement\\backend\\webapplication3\\webapplication3\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\PRMS.csproj|solutionrelative:webapplication3\\controllers\\patientcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\PRMS.csproj|d:\\dockyard internships\\despansary management system\\hospitralmanagement\\backend\\webapplication3\\webapplication3\\controllers\\appoinmentlogincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E4131597-4B7B-4BAE-8EBA-11870298DF88}|webapplication3\\PRMS.csproj|solutionrelative:webapplication3\\controllers\\appoinmentlogincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -54,11 +54,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "MED_APPOINMENT_DETAILS.cs",
               "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\HospitralManagement\\backend\\webapplication3\\webapplication3\\Models\\MED_APPOINMENT_DETAILS.cs",
               "RelativeDocumentMoniker": "webapplication3\\Models\\MED_APPOINMENT_DETAILS.cs",
@@ -70,7 +70,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MED_TIMESLOT.cs",
               "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\HospitralManagement\\backend\\webapplication3\\webapplication3\\Models\\MED_TIMESLOT.cs",
               "RelativeDocumentMoniker": "webapplication3\\Models\\MED_TIMESLOT.cs",
@@ -82,7 +82,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "loginController.cs",
               "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\HospitralManagement\\backend\\webapplication3\\webapplication3\\Controllers\\loginController.cs",
               "RelativeDocumentMoniker": "webapplication3\\Controllers\\loginController.cs",
@@ -94,7 +94,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "treatmentController.cs",
               "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\HospitralManagement\\backend\\webapplication3\\webapplication3\\Controllers\\treatmentController.cs",
               "RelativeDocumentMoniker": "webapplication3\\Controllers\\treatmentController.cs",
@@ -106,7 +106,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "materialController.cs",
               "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\HospitralManagement\\backend\\webapplication3\\webapplication3\\Controllers\\materialController.cs",
               "RelativeDocumentMoniker": "webapplication3\\Controllers\\materialController.cs",
@@ -118,7 +118,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "registeruserController.cs",
               "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\HospitralManagement\\backend\\webapplication3\\webapplication3\\Controllers\\registeruserController.cs",
               "RelativeDocumentMoniker": "webapplication3\\Controllers\\registeruserController.cs",
@@ -166,19 +166,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "patientController.cs",
               "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\HospitralManagement\\backend\\webapplication3\\webapplication3\\Controllers\\patientController.cs",
               "RelativeDocumentMoniker": "webapplication3\\Controllers\\patientController.cs",
               "ToolTip": "D:\\Dockyard internships\\Despansary management system\\HospitralManagement\\backend\\webapplication3\\webapplication3\\Controllers\\patientController.cs",
               "RelativeToolTip": "webapplication3\\Controllers\\patientController.cs",
-              "ViewState": "AQIAAI4AAAAAAAAAAAAkwKwAAAARAAAA",
+              "ViewState": "AQIAAJAAAAAAAAAAAAAuwKwAAAARAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-07T08:36:53.434Z"
+              "WhenOpened": "2024-10-07T08:36:53.434Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "timeslotController.cs",
               "DocumentMoniker": "D:\\Dockyard internships\\Despansary management system\\HospitralManagement\\backend\\webapplication3\\webapplication3\\Controllers\\timeslotController.cs",
               "RelativeDocumentMoniker": "webapplication3\\Controllers\\timeslotController.cs",

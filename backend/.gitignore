@@ -1,0 +1,46 @@
+# Ignore build outputs
+bin/
+obj/
+
+# Ignore user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore folders for Visual Studio/VSCode/JetBrains IDEs
+.vscode/
+.idea/
+.vs/
+
+# Ignore dependency manager files
+*.psd1
+*.psm1
+node_modules/
+jspm_packages/
+
+# Ignore logs and temporary files
+logs/
+*.log
+*.tlog
+*.vspscc
+*.vssscc
+.env
+
+# Ignore Publish output
+publish/
+out/
+
+# Ignore packages folder
+packages/
+.nuget/
+project.lock.json
+
+# Ignore config
+appsettings*.json
+
+# Ignore git history for branches
+.git/
+
+# Ignore sensitive information
+secrets.json
