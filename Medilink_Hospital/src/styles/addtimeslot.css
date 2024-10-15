@@ -7,6 +7,16 @@
   background-color: #f7f8fa;
 }
 
+
+
+.delete-btn2{
+
+  float:right;
+  border:none;
+  background-color: white;
+  font-size:20px;
+}
+
 /* Grid layout for the timeslot form */
 .form-timeslot {
   background-color: #ffffff;
@@ -124,7 +134,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
-  text-align: center;
+  text-align: left;
   transition: transform 0.3s ease;
 }
 

@@ -4,7 +4,7 @@
   align-items: center;
   min-height: 100vh;
   background-size: cover;
-  background-image: url('../assets/login-bg.avif');
+  background-image: url('../assets/bg2.png');
   background-position: center;
   background-repeat: no-repeat;
   /* Light background */
@@ -61,7 +61,7 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 16px;
-  background-color: #f7f7f7;
+  /* background-color: #f7f7f7; */
 }
 
 .user-registration .form-group input:focus {

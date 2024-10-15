@@ -107,35 +107,7 @@ namespace webapplication3.Controllers
 
 
 
-        // PUT: api/Patient/{id}
-        /*[HttpPut("{id}")]
-        public async Task<IActionResult> PutPatient(string id, MED_PATIENTS_DETAILS patient)
-        {
-            if (id != patient.MPD_PATIENT_CODE)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(patient).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PatientExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }*/
+        
 
 
         [HttpPut("{id}")]

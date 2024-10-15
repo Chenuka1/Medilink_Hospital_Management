@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import '../styles/profile.css'; 
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+import '../styles/profile.css';
 
 export default function Profile() {
   const [userAppointments, setUserAppointments] = useState([]);
@@ -10,6 +11,8 @@ export default function Profile() {
   const [updatedProfile, setUpdatedProfile] = useState({});
   const [profileImage, setProfileImage] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
+
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const fetchAppointmentDetails = async () => {
     if (email1) {
@@ -74,7 +77,7 @@ export default function Profile() {
         { headers: { "Content-Type": "multipart/form-data" } }
       );
       setProfiledata(updatedProfile);
-      alert("Profile details updated")
+      alert("Profile details updated");
       setIsEditing(false);
     } catch (error) {
       console.error("Error updating profile:", error);
@@ -88,145 +91,145 @@ export default function Profile() {
 
   return (
     <div>
+      <div className="profile-container">
+        <button className="back-button" onClick={() => navigate(-1)}> {/* Back button */}
+          Go Back
+        </button>
 
-<div className="profile-container">
-      <section className="profile-details">
-        <h2 className="section-title">Profile</h2>
-        <form onSubmit={handleSave}>
-          <div className="profile-icon-wrapper">
-            <label htmlFor="profileImageUpload" className="profile-image-label">
-              <img
-                src={imagePreview || 'default-profile-icon.png'}
-                alt="Profile"
-                className="profile-icon"
+        <section className="profile-details">
+          <h2 className="section-title">Profile</h2>
+          <form onSubmit={handleSave}>
+            <div className="profile-icon-wrapper">
+              <label htmlFor="profileImageUpload" className="profile-image-label">
+                <img
+                  src={imagePreview || 'default-profile-icon.png'}
+                  alt="Profile"
+                  className="profile-icon"
+                />
+              </label>
+              <input
+                id="profileImageUpload"
+                type="file"
+                name="profileImage"
+                accept="image/*"
+                onChange={handleImageChange}
+                style={{ display: 'none' }}
               />
-            </label>
-            <input
-              id="profileImageUpload"
-              type="file"
-              name="profileImage"
-              accept="image/*"
-              onChange={handleImageChange}
-              style={{ display: 'none' }}
-            />
-          </div>
+            </div>
 
-          <div className="profile-input-group">
-            <label htmlFor="MPD_EMAIL">Email</label>
-            <input
-              type="text"
-              name="MPD_EMAIL"
-              id="MPD_EMAIL"
-              value={updatedProfile?.MPD_EMAIL || 'Email not available'}
-              onChange={handleInputChange}
-              
-            />
-          </div>
+            <div className="profile-input-group">
+              <label htmlFor="MPD_EMAIL">Email</label>
+              <input
+                type="text"
+                name="MPD_EMAIL"
+                id="MPD_EMAIL"
+                value={updatedProfile?.MPD_EMAIL || 'Email not available'}
+                onChange={handleInputChange}
+              />
+            </div>
 
-          <div className="profile-input-group">
-            <label htmlFor="MPD_PATIENT_NAME">Full Name</label>
-            <input
-              type="text"
-              name="MPD_PATIENT_NAME"
-              id="MPD_PATIENT_NAME"
-              value={updatedProfile?.MPD_PATIENT_NAME || 'Name not available'}
-              onChange={handleInputChange}
-              
-            />
-          </div>
+            <div className="profile-input-group">
+              <label htmlFor="MPD_PATIENT_NAME">Full Name</label>
+              <input
+                type="text"
+                name="MPD_PATIENT_NAME"
+                id="MPD_PATIENT_NAME"
+                value={updatedProfile?.MPD_PATIENT_NAME || 'Name not available'}
+                onChange={handleInputChange}
+              />
+            </div>
 
-          <div className="profile-input-group">
-            <label htmlFor="MPD_MOBILE_NO">Mobile Number</label>
-            <input
-              type="text"
-              name="MPD_MOBILE_NO"
-              id="MPD_MOBILE_NO"
-              value={updatedProfile?.MPD_MOBILE_NO || 'Mobile number not available'}
-              onChange={handleInputChange}
-              
-            />
-          </div>
+            <div className="profile-input-group">
+              <label htmlFor="MPD_MOBILE_NO">Mobile Number</label>
+              <input
+                type="text"
+                name="MPD_MOBILE_NO"
+                id="MPD_MOBILE_NO"
+                value={updatedProfile?.MPD_MOBILE_NO || 'Mobile number not available'}
+                onChange={handleInputChange}
+              />
+            </div>
 
-          <div className="profile-input-group">
-            <label htmlFor="MPD_ADDRESS">Address</label>
-            <input
-              type="text"
-              name="MPD_ADDRESS"
-              id="MPD_ADDRESS"
-              value={updatedProfile?.MPD_ADDRESS || 'Address not available'}
-              onChange={handleInputChange}
-              
-            />
-          </div>
+            <div className="profile-input-group">
+              <label htmlFor="MPD_ADDRESS">Address</label>
+              <input
+                type="text"
+                name="MPD_ADDRESS"
+                id="MPD_ADDRESS"
+                value={updatedProfile?.MPD_ADDRESS || 'Address not available'}
+                onChange={handleInputChange}
+              />
+            </div>
 
-          <div className="profile-input-group">
-            <label htmlFor="MPD_NIC_NO">NIC</label>
-            <input
-              type="text"
-              name="MPD_NIC_NO"
-              id="MPD_NIC_NO"
-              value={updatedProfile?.MPD_NIC_NO || 'NIC not available'}
-              onChange={handleInputChange}
-              
-            />
-          </div>
+            <div className="profile-input-group">
+              <label htmlFor="MPD_NIC_NO">NIC</label>
+              <input
+                type="text"
+                name="MPD_NIC_NO"
+                id="MPD_NIC_NO"
+                value={updatedProfile?.MPD_NIC_NO || 'NIC not available'}
+                onChange={handleInputChange}
+              />
+            </div>
 
-          <div className="button-group">
-            {isEditing ? (
-              <button type="submit" className="save-button">Save Profile</button>
-            ) : (
-              <button type="button" className="edit-button" onClick={() => setIsEditing(true)}>
-                Update Profile
-              </button>
-            )}
-          </div>
-        </form>
-      </section>
+            <div className="button-group">
+              {isEditing ? (
+                <button type="submit" className="save-button">Save Profile</button>
+              ) : (
+                <button type="button" className="edit-button" onClick={() => setIsEditing(true)}>
+                  Update Profile
+                </button>
+              )}
+            </div>
+          </form>
+        </section>
 
-      <section className="user-appointments">
-        <h2 className="section-title">Your Appointments</h2>
-        {userAppointments.length > 0 ? (
-          <table className="appointments-table">
-            <thead>
-              <tr>
-                <th>Doctor</th>
-                <th>Patient Name</th>
-                <th>Date</th>
-                <th>Time</th>
-              </tr>
-            </thead>
-            <tbody>
-              {userAppointments.map((appointment, index) => (
-                <tr key={index}>
-                  <td>{appointment.MAD_DOCTOR}</td>
-                  <td>{appointment.MAD_FULL_NAME}</td>
-                  <td>{new Date(appointment.MAD_APPOINMENT_DATE).toLocaleDateString()}</td>
-                  <td>
-                 {new Date(`1970-01-01T${appointment.MAD_START_TIME}`).toLocaleTimeString('en-LK', { 
-                timeZone: 'Asia/Colombo', 
-                hour: 'numeric', 
-               minute: 'numeric', 
-               hour12: true 
-               })} 
-  - 
-              {new Date(`1970-01-01T${appointment.MAD_END_TIME}`).toLocaleTimeString('en-LK', { 
-              timeZone: 'Asia/Colombo', 
-             hour: 'numeric', 
-             minute: 'numeric', 
-              hour12: true 
-              })}
-</td>
-                  
+        <section className="user-appointments">
+          <h2 className="section-title">Your Appointments</h2>
+          {userAppointments.length > 0 ? (
+            <table className="appointments-table">
+              <thead>
+                <tr>
+                  <th>Doctor</th>
+                  <th>Patient Name</th>
+                  <th>Date</th>
+                  <th>Doctor available time</th>
+                  <th>Your time</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <p>No appointments found.</p>
-        )}
-      </section>
+              </thead>
+              <tbody>
+                {userAppointments.map((appointment, index) => (
+                  <tr key={index}>
+                    <td>{appointment.MAD_DOCTOR}</td>
+                    <td>{appointment.MAD_FULL_NAME}</td>
+                    <td>{new Date(appointment.MAD_APPOINMENT_DATE).toLocaleDateString()}</td>
+                    <td>
+                      {new Date(`1970-01-01T${appointment.MAD_START_TIME}`).toLocaleTimeString('en-LK', {
+                        timeZone: 'Asia/Colombo',
+                        hour: 'numeric',
+                        minute: 'numeric',
+                        hour12: true
+                      })}
+                      -
+                      {new Date(`1970-01-01T${appointment.MAD_END_TIME}`).toLocaleTimeString('en-LK', {
+                        timeZone: 'Asia/Colombo',
+                        hour: 'numeric',
+                        minute: 'numeric',
+                        hour12: true
+                      })}
+                    </td>
+
+                    <td>{appointment.MAD_ALLOCATED_TIME}</td>
+
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <p>No appointments found.</p>
+          )}
+        </section>
+      </div>
     </div>
-    </div>
-   
   );
 }

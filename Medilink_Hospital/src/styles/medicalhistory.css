@@ -200,18 +200,19 @@
     top: 10px;
     right: 10px;
     padding: 8px 12px;
-    background-color: #e74c3c;
-    color: #ffffff;
+    background-color: white; 
+    color: black;
     border: none;
-    border-radius: 50%;
+    
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s, transform 0.2s;
-}
+    font-size: 35px;
+     transition: background-color 0.3s, transform 0.2s;
+} 
 
 .close-popup-button:hover {
-    background-color: #c0392b;
+   
     transform: scale(1.1);
+    color:#007bff
 }
 
 .no-patient-container {

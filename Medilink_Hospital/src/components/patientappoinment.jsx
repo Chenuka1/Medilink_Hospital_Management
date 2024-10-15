@@ -249,7 +249,7 @@ const submitAppointment = async () => {
           onChange={(e) => setSpecialization(e.target.value)}
         >
           <option></option>
-          <option value="OPD">OPD</option>
+          
           <option value="physciatrist">Psychiatrist</option>
           <option value="Dentist">Dentist</option>
           <option value="cardiologist">cardiologist</option>
@@ -329,6 +329,8 @@ const submitAppointment = async () => {
         {selectedAppointment && (
           <>
             <p>Your patient number is {selectedAppointment.MT_PATIENT_NO + 1}</p>
+            <p>Your time is {selectedAppointment.MT_ALLOCATED_TIME}</p>
+            
             
             <label>Patient full name</label>
             <input

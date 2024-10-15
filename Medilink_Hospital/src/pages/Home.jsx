@@ -1,3 +1,5 @@
+
+//Home.jsx
 import { useState } from "react";
 import Navbar from "../components/navbar";
 import '../styles/home.css';
@@ -47,8 +49,9 @@ export default function Home() {
 
       {popup && (
         <div className="popup">
-          <PatientAppointment />
           <button className="close-btn" onClick={closeup}><FontAwesomeIcon icon={faTimes} /></button>
+          <PatientAppointment />
+          
         </div>
       )}
 

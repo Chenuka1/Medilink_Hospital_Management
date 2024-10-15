@@ -1,99 +1,209 @@
-
-.register-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    /* background-color: black; */
-  }
-  
-  .register-header {
-    font-size: 36px;
-    color: #34a853;
-    margin-bottom: 20px;
-  }
-  
-  .form-container {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .image-container {
-    position: relative;
-    margin-bottom: 30px;
-  }
-  
-  .profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .edit-icon {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    background-color: #007bff;
-    color: #fff;
-    border-radius: 50%;
-    padding: 5px;
-    cursor: pointer;
-  }
-  
-  .register-form {
-    width: 100%;
-  }
-  
-  .input-row {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  
-  .input-group {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    margin: 15px 10px;
-  }
-  
-  .input-group label {
-    margin-bottom: 5px;
-    font-weight: 500;
-  }
-  
-  .input-group input, .input-group select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 14px;
-  }
-  
-  .register-btn {
-    width: 30%;
-    padding: 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 40px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin: 0 auto; /* Center the button */
-    display: block; /* Ensure block-level element for centering */
+/* General layout */
+.add-user-container {
+  width: 85%;
+  max-width: 1200px; 
+  margin: 20px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  place-items: center;
+ 
 }
 
+/* Search section styling */
+.search-container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  text-align: center;
+  margin: 30px auto;
+}
+
+
+.search-container1 input[type="text"] {
+  padding: 10px;
+  width: 30%; /* Full width on small screens */
+  /* border-radius: 25px; */
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin-right: 10px; /* Space between input and button */
+ 
+}
+
+
+
+.search-container1 input[type="search"] {
   
-  .register-btn:hover {
-    background-color: #0056b3;
+  padding: 10px;
+  width: 50%; /* Full width on small screens */
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.search-container1 button {
+  padding: 10px 20px;
+  background-color: #007bff; /* Button color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  
+}
+/*  */
+.search-container1 .open-popup-btn{
+
+
+
+  background-color: red;
+  color:white;
+  margin-left: 10px;
+}
+
+
+.open-popup-btn:hover{
+
+  background-color: darkred;
+
+
+}
+
+
+
+
+
+
+
+/* Table styling */
+.users-table {
+  width: 85%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.users-table th,
+.users-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.users-table th {
+  background-color: #007bff; /* Blue header */
+  color: white;
+  font-size: 1.1rem;
+}
+
+.users-table tbody tr:hover {
+  background-color: #e3f2fd; /* Light blue hover effect */
+}
+
+/* Popup container */
+.popup-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Popup content styling */
+.popup-content4 {
+  background-color: #fff;
+  padding: 20px; /* Adjust padding */
+  border-radius: 8px; /* Slightly smaller border radius */
+  max-width: 500px; /* Set a max-width */
+  width: 90%; /* Responsive width */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Header styling */
+.register-header {
+  font-size: 1.5rem; /* Slightly larger header font size */
+  margin-bottom: 10px; /* Space below header */
+}
+
+/* Form element styling */
+.popup-content4 label {
+  font-size: 0.9rem; /* Adjust label font size */
+  margin: 10px 0 5px; /* Margin above and below labels */
+  display: block; /* Ensure labels are block elements */
+}
+
+/* Input field styling */
+.popup-container input[type="text"],
+.popup-container input[type="password"],
+.popup-container select {
+  width: 90%; /* Full width input */
+  padding: 10px; /* Padding for inputs */
+  font-size: 0.9rem; /* Adjust input font size */
+  margin-bottom: 15px; /* Space below inputs */
+  border: 1px solid #ccc; /* Input border */
+  border-radius: 4px; /* Input border radius */
+}
+
+.popup-container select {
+  width: 95%;
+}
+
+/* Button styling */
+.btn-delete {
+  padding: 7px 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.register-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+/* Close button styling */
+.close-popup-btn {
+  float: right; /* Align the button to the right */
+  background-color: white;
+  border: none;
+  font-size: 1.2rem; /* Adjust the size of the close button */
+  cursor: pointer;
+  padding: 5px 10px;
+  margin-bottom: 10px; /* Add some space below the button */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .popup-content4 {
+    max-width: 90%;
   }
-  
+
+  .register-header {
+    font-size: 1.3rem; /* Smaller header on mobile */
+  }
+
+  label {
+    font-size: 0.8rem; /* Smaller labels on mobile */
+  }
+
+  input[type="text"],
+  input[type="password"],
+  select {
+    font-size: 0.8rem; /* Smaller inputs on mobile */
+  }
+}

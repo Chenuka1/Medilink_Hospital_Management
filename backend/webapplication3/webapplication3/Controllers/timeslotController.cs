@@ -63,6 +63,8 @@ namespace webapplication3.Controllers
             return Ok(timeslots);
         }
 
+        
+
 
 
 
@@ -86,22 +88,19 @@ namespace webapplication3.Controllers
             return CreatedAtAction(nameof(GetTimeslot), new { id = timeslot.MT_SLOT_ID }, timeslot);
         }
 
-        // DELETE: api/Timeslot/5
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteTimeslot(int id)
         {
             var timeslot = await _context.MED_TIMESLOT.FindAsync(id);
-
             if (timeslot == null)
             {
                 return NotFound();
             }
-
             _context.MED_TIMESLOT.Remove(timeslot);
             await _context.SaveChangesAsync();
-
             return NoContent();
         }
+
 
 
 

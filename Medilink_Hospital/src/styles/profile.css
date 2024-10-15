@@ -2,7 +2,7 @@
   padding: 40px;
   max-width: 900px;
   margin: 40px auto;
-  background-color: #f9f9f9;
+  background-color:  #f5f7fa;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
@@ -111,4 +111,20 @@
 
 .appointments-table tbody tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+.profile-container
+.back-button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 20px;
+}
+.profile-container
+.back-button:hover {
+  background-color: #0056b3;
 }
